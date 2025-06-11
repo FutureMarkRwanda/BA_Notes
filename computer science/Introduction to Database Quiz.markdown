@@ -5,36 +5,32 @@
    - B) An organized collection of data
    - C) A type of hardware
    - D) A network protocol
-   - **Answer**: B
-
+   
 2. What does a DBMS do?
    - A) Designs computer hardware
    - B) Manages databases
    - C) Connects networks
    - D) Creates web pages
-   - **Answer**: B
-
+   
 3. What is a primary key?
    - A) A duplicate record
    - B) A unique identifier for a record
    - C) A field linking two tables
    - D) A query language
-   - **Answer**:iać
+   
 
 4. Which term refers to a single entry in a database table?
    - A) Field
    - B) Record
    - C) Table
    - D) Query
-   - **Answer**: B
-
+   
 5. What is SQL used for?
    - A) Managing hardware
    - B) Querying and managing relational databases
    - C) Designing networks
    - D) Creating user interfaces
-   - **Answer**: B
-
+   
 6. In which area are databases used to track patient information?
    - A) Education
    - B) Healthcare
@@ -47,109 +43,94 @@
    - B) E-Commerce
    - C) Government
    - D) Education
-   - **Answer**: B
-
+   
 8. What type of database organizes data into tables linked by keys?
    - A) Flat File
    - B) Relational
    - C) Hierarchical
    - D) NoSQL
-   - **Answer**: B
-
+   
 9. Which database approach is best for unstructured data?
    - A) Relational
    - B) Hierarchical
    - C) NoSQL
    - D) Flat File
-   - **Answer**: C
-
+   
 10. What is a limitation of a flat file database?
     - A) High scalability
     - B) No relationships
     - C) Complex queries
     - D) Flexible schema
-    - **Answer**: B
-
+    
 11. Which database approach uses a tree-like structure?
     - A) Relational
     - B) Hierarchical
     - C) NoSQL
     - D) Flat File
-    - **Answer**: B
-
+    
 12. What is an example of a relational DBMS?
     - A) MongoDB
     - B) MySQL
     - C) Excel
     - D) JSON
-    - **Answer**: B
-
+    
 13. Which access level allows viewing data without modification?
     - A) Read-Write
     - B) Read-Only
     - C) Administrative
     - D) Full Control
-    - **Answer**: B
-
+    
 14. Who manages the database structure and security?
     - A) End User
     - B) Application Developer
     - C) Database Administrator
     - D) Client
-    - **Answer**: C
-
+    
 15. What is used to verify a user’s identity in a database?
     - A) Authorization
     - B) Authentication
     - C) Encryption
     - D) Query
-    - **Answer**: B
-
+    
 16. Which SQL command grants permissions to a user?
     - A) SELECT
     - B) INSERT
     - C) GRANT
     - D) UPDATE
-    - **Answer**: C
-
+    
 17. What is a foreign key?
     - A) A unique identifier for a table
     - B) A field linking two tables
     - C) A query for data retrieval
     - D) A type of DBMS
-    - **Answer**: B
-
+    
 18. In which area are databases used for tax management?
     - A) Education
     - B) Healthcare
     - C) Government
     - D) E-Commerce
-    - **Answer**: C
-
+    
 19. What is a table in a database?
     - A) A single data value
     - B) A structure with rows and columns
     - C) A type of query
     - D) A user account
-    - **Answer**: B
-
+    
 20. Which database approach allows multiple parent-child relationships?
     - A) Relational
     - B) Hierarchical
     - C) Network
     - D) Flat File
-    - **Answer**: C
-
+    
 21. What is a benefit of relational databases?
     - A) No need for SQL
     - B) Enforces data integrity
     - C) Limited scalability
     - D) Simple structure
-    - **Answer**: B
-
+    
 22. What should be used to secure sensitive data in a database?
     - A) Weak passwords
     - B) Encryption
     - C) Public access
     - D) No authentication
-    - **Answer**: B
+    
