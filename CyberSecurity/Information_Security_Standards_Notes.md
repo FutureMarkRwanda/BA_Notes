@@ -1,0 +1,56 @@
+# Information Security Standards
+
+## Summary
+
+This topic covers information security standards, focusing on asset classification and guidelines for protecting information assets. It explains how organizations categorize data based on sensitivity and align with international and Rwandan regulations to safeguard assets.
+
+* **Information Asset Classification**: Categorizing assets by sensitivity and impact.
+* **Guidelines for Protection**: International and Rwandan standards for securing assets.
+
+---
+
+## Information Asset Classification
+
+Information asset classification categorizes data and resources (e.g., documents, databases, hardware) based on their sensitivity and potential impact if compromised, guiding the application of security controls.
+
+**Asset Types**:
+- Paper/digital documents, databases, passwords, encryption keys, or other digital files.
+- Stored on carriers like paper, USB drives, hard drives, servers, or cloud platforms.
+- Lifecycle: Creation, processing, storage, transmission, deletion, destruction.
+
+**Classification Levels**:
+- **Public**: Freely shareable, no risk if disclosed (e.g., marketing brochures, press releases).
+- **Internal/Private**: For internal use, minimal impact if exposed (e.g., internal memos, policies).
+- **Confidential**: Sensitive, harmful if disclosed (e.g., employee records, financial data).
+- **Restricted/Highly Confidential**: Severe damage if compromised (e.g., trade secrets, credit card details).
+
+**Purpose**:
+- Identifies risks based on sensitivity.
+- Ensures compliance (e.g., GDPR, HIPAA).
+- Applies controls to critical assets, optimizing resource allocation.
+
+**Example**:
+- A bank classifies customer financial data as confidential, public reports as public, and trade secrets as restricted.
+- Scenario: A university classifies student grades as confidential, course syllabi as public, and research patents as restricted.
+
+---
+
+## Guidelines for Protecting Information Assets
+
+Organizations protect assets by adhering to international standards and local regulations, ensuring compliance and robust security practices.
+
+**International Guidelines**:
+- **ISO/IEC 27001**: Framework for Information Security Management Systems (ISMS), covering risk management and controls.
+- **GDPR**: EU regulation for personal data protection, requiring encryption and consent.
+- **HIPAA**: U.S. law protecting health information (PHI), mandating access controls and audits.
+- **ISO/IEC 27018**: Guidelines for securing personal data in cloud environments.
+
+**Rwandan Guidelines**:
+- **Data Protection and Privacy Law (Law No. 058/2021)**: Regulates personal data handling in Rwanda.
+- **National Cyber Security Policy (2015)**: Secures critical information infrastructure.
+- **RISA Guidelines**: Coordinates ICT policies, including cybersecurity.
+- **ICT Law (Law No. 24/2016)**: Regulates digital asset protection.
+
+**Example**:
+- A Rwandan hospital complies with HIPAA for patient data and Rwanda’s Data Protection Law for local regulations, using encryption and access controls.
+- Scenario: A tech firm implements ISO/IEC 27001 and GDPR to secure client data, aligning with Rwanda’s ICT Law for local operations.
