@@ -24,7 +24,7 @@ PHP scripts consist of statements like assignments, function calls, loops, or co
 
 **Example**: A script with grouped statements checks user roles and outputs messages conditionally, using curly braces for clarity.
 
-**Scenario**: A developer uses flow control to display different webpage content based on user authentication status.
+A developer uses flow control to display different webpage content based on user authentication status.
 
 ---
 
@@ -32,11 +32,17 @@ PHP scripts consist of statements like assignments, function calls, loops, or co
 
 Sequential logic executes statements in the order they are written, following a linear flow unless modified by control structures. This is the default behavior in PHP, suitable for straightforward tasks.
 
-**Explanation**: Unless directed otherwise (e.g., by loops or conditionals), PHP processes statements sequentially, executing each line as it appears in the script. This is ideal for simple, linear tasks like initializing variables or outputting static content.
+Unless directed otherwise (e.g., by loops or conditionals), PHP processes statements sequentially, executing each line as it appears in the script. This is ideal for simple, linear tasks like initializing variables or outputting static content.
 
 **Example**: A script outputs a welcome message followed by a user’s name in sequence.
 
-**CODES**:
+**Output**:
+```
+Welcome to the site!
+User: Alice
+```
+
+
 ```php
 <?php
 echo "Welcome to the site!";
@@ -45,13 +51,6 @@ echo "User: $name";
 ?>
 ```
 
-**Output**:
-```
-Welcome to the site!
-User: Alice
-```
-
-**Scenario**: A webpage displays a header, content, and footer in order, relying on sequential logic for static rendering.
 
 ---
 
@@ -59,15 +58,15 @@ User: Alice
 
 Selection control structures enable conditional execution based on Boolean expressions, using relational operators (`==`, `>`, `<`, `>=`, `<=`) and logical operators (`AND`, `OR`, `NOT`). They include `if`, `else`, `elseif`, and `switch`.
 
-**Explanation**: These structures perform logical tests to decide which code block executes. They are essential for dynamic applications, such as user authentication or role-based access.
+These structures perform logical tests to decide which code block executes. They are essential for dynamic applications, such as user authentication or role-based access.
 
 ### If
 
-**Explanation**: The `if` statement evaluates a Boolean expression. If true, it executes the associated statement or block; if false, it skips it. Multiple statements are grouped in curly braces `{}` or alternative syntax (`:` and `endif`).
+The `if` statement evaluates a Boolean expression. If true, it executes the associated statement or block; if false, it skips it. Multiple statements are grouped in curly braces `{}` or alternative syntax (`:` and `endif`).
 
 **Example**: Display "a is bigger than b" if `$a` is greater than `$b`.
 
-**CODES**:
+
 ```php
 <?php
 $a = 10;
@@ -82,11 +81,11 @@ if ($a > $b) {
 
 ### Else
 
-**Explanation**: The `else` statement extends `if`, executing a different block if the `if` condition is false. It’s used for binary decisions, ensuring one of two paths is taken.
+The `else` statement extends `if`, executing a different block if the `if` condition is false. It’s used for binary decisions, ensuring one of two paths is taken.
 
 **Example**: Display "a is greater than b" if `$a > $b`, otherwise display "a is NOT greater than b".
 
-**CODES**:
+
 ```php
 <?php
 $a = 5;
@@ -103,11 +102,11 @@ if ($a > $b) {
 
 ### Elseif
 
-**Explanation**: The `elseif` (or `else if`) statement checks additional conditions if the preceding `if` or `elseif` conditions are false. It executes only if its condition is true. Use curly braces or alternative syntax, noting that `else if` (two words) requires curly braces to avoid parse errors in alternative syntax.
+The `elseif` (or `else if`) statement checks additional conditions if the preceding `if` or `elseif` conditions are false. It executes only if its condition is true. Use curly braces or alternative syntax, noting that `else if` (two words) requires curly braces to avoid parse errors in alternative syntax.
 
 **Example**: Display messages based on whether `$a` is greater than, equal to, or less than `$b`.
 
-**CODES**:
+
 ```php
 <?php
 $a = 5;
@@ -126,11 +125,11 @@ if ($a > $b) {
 
 ### Switch
 
-**Explanation**: The `switch` statement compares a single expression against multiple values, executing the matching `case` block. A `break` statement prevents fall-through to subsequent cases. The `default` case handles unmatched values and must be last. Alternative syntax uses `:` and `endswitch`.
+The `switch` statement compares a single expression against multiple values, executing the matching `case` block. A `break` statement prevents fall-through to subsequent cases. The `default` case handles unmatched values and must be last. Alternative syntax uses `:` and `endswitch`.
 
 **Example**: Display messages based on the value of `$i` using `switch`.
 
-**CODES**:
+
 ```php
 <?php
 $i = 1;
@@ -152,7 +151,7 @@ switch ($i) {
 
 **Output**: `i equals 1`
 
-**Scenario**: A web app uses `if-elseif-else` to display user role-specific dashboards and `switch` to handle different payment methods.
+A web app uses `if-elseif-else` to display user role-specific dashboards and `switch` to handle different payment methods.
 
 ---
 
@@ -160,15 +159,15 @@ switch ($i) {
 
 Looping structures repeat code execution based on conditions or iterations, including `for`, `while`, `do-while`, and `foreach`, ideal for processing arrays or repetitive tasks.
 
-**Explanation**: Loops automate repetitive tasks, such as iterating over data or generating patterns, controlled by conditions or counters.
+Loops automate repetitive tasks, such as iterating over data or generating patterns, controlled by conditions or counters.
 
 ### For
 
-**Explanation**: The `for` loop executes a block for a specified number of iterations, defined by three expressions: initialization, condition, and increment. It supports curly braces or alternative syntax (`:` and `endfor`). Empty expressions allow flexibility, often using `break` for control.
+The `for` loop executes a block for a specified number of iterations, defined by three expressions: initialization, condition, and increment. It supports curly braces or alternative syntax (`:` and `endfor`). Empty expressions allow flexibility, often using `break` for control.
 
 **Example**: Print numbers 1 to 10 using a `for` loop.
 
-**CODES**:
+
 ```php
 <?php
 for ($i = 1; $i <= 10; $i++) {
@@ -181,11 +180,11 @@ for ($i = 1; $i <= 10; $i++) {
 
 ### While
 
-**Explanation**: The `while` loop executes as long as its condition is true, checking the condition at the start of each iteration. If false initially, the loop skips entirely. It supports curly braces or alternative syntax (`:` and `endwhile`).
+The `while` loop executes as long as its condition is true, checking the condition at the start of each iteration. If false initially, the loop skips entirely. It supports curly braces or alternative syntax (`:` and `endwhile`).
 
 **Example**: Print numbers 1 to 10 using a `while` loop.
 
-**CODES**:
+
 ```php
 <?php
 $i = 1;
@@ -199,11 +198,11 @@ while ($i <= 10) {
 
 ### Do-While
 
-**Explanation**: The `do-while` loop executes at least once, checking its condition at the end of each iteration. It’s useful when the loop body must run before condition evaluation.
+The `do-while` loop executes at least once, checking its condition at the end of each iteration. It’s useful when the loop body must run before condition evaluation.
 
 **Example**: Print a number once, stopping if it’s not greater than 0.
 
-**CODES**:
+
 ```php
 <?php
 $i = 0;
@@ -217,11 +216,11 @@ do {
 
 ### Foreach
 
-**Explanation**: The `foreach` loop iterates over arrays or objects, assigning each element’s value (or key and value) to variables. It’s ideal for array processing, with two syntaxes: value-only or key-value. Unset references after use to avoid unintended behavior.
+The `foreach` loop iterates over arrays or objects, assigning each element’s value (or key and value) to variables. It’s ideal for array processing, with two syntaxes: value-only or key-value. Unset references after use to avoid unintended behavior.
 
 **Example**: Iterate over an array to double its values.
 
-**CODES**:
+
 ```php
 <?php
 $arr = array(1, 2, 3, 4);
@@ -235,7 +234,7 @@ print_r($arr);
 
 **Output**: `Array ( [0] => 2 [1] => 4 [2] => 6 [3] => 8 )`
 
-**Scenario**: A developer uses `for` to generate a numbered list, `foreach` to display database records, and `do-while` for a retry mechanism in a form submission.
+A developer uses `for` to generate a numbered list, `foreach` to display database records, and `do-while` for a retry mechanism in a form submission.
 
 ---
 
@@ -243,15 +242,15 @@ print_r($arr);
 
 Jumping structures interrupt or skip execution within loops or switches, including `break`, `continue`, and `goto`, controlling flow dynamically.
 
-**Explanation**: These structures allow exiting loops/switches, skipping iterations, or jumping to labeled points, enhancing control over complex logic.
+These structures allow exiting loops/switches, skipping iterations, or jumping to labeled points, enhancing control over complex logic.
 
 ### Break
 
-**Explanation**: The `break` statement terminates the current `for`, `foreach`, `while`, `do-while`, or `switch` structure. An optional numeric argument specifies how many nested structures to exit (default is 1).
+The `break` statement terminates the current `for`, `foreach`, `while`, `do-while`, or `switch` structure. An optional numeric argument specifies how many nested structures to exit (default is 1).
 
 **Example**: Stop a loop when a condition is met, e.g., finding "stop" in an array.
 
-**CODES**:
+
 ```php
 <?php
 $arr = array('one', 'two', 'three', 'four', 'stop', 'five');
@@ -274,11 +273,11 @@ four
 
 ### Continue
 
-**Explanation**: The `continue` statement skips the current loop iteration, moving to the next iteration’s condition check. In a `switch` within a loop, `continue 2` targets the outer loop. An optional argument specifies levels to skip (default is 1).
+The `continue` statement skips the current loop iteration, moving to the next iteration’s condition check. In a `switch` within a loop, `continue 2` targets the outer loop. An optional argument specifies levels to skip (default is 1).
 
 **Example**: Skip even keys in an array.
 
-**CODES**:
+
 ```php
 <?php
 $arr = array('one', 'two', 'three', 'four');
@@ -299,11 +298,11 @@ four
 
 ### Goto
 
-**Explanation**: The `goto` statement jumps to a labeled point in the same file and context, useful for exiting nested loops but restricted from jumping into loops or functions.
+The `goto` statement jumps to a labeled point in the same file and context, useful for exiting nested loops but restricted from jumping into loops or functions.
 
 **Example**: Jump to a label to skip code.
 
-**CODES**:
+
 ```php
 <?php
 goto a;
@@ -315,19 +314,19 @@ echo 'Bar';
 
 **Output**: `Bar`
 
-**Scenario**: A script uses `break` to exit a loop when an error occurs, `continue` to skip invalid data, and `goto` to redirect flow in a complex validation process.
+A script uses `break` to exit a loop when an error occurs, `continue` to skip invalid data, and `goto` to redirect flow in a complex validation process.
 
 ---
 
 ## Exercises
 
-**Explanation**: Exercises reinforce flow control concepts through practical tasks, such as printing array data or generating patterns using loops.
+Exercises reinforce flow control concepts through practical tasks, such as printing array data or generating patterns using loops.
 
 ### Exercise 1: Province Details
 
-**Explanation**: Use a `for` loop to iterate over an array of province details, printing each element separated by commas.
+Use a `for` loop to iterate over an array of province details, printing each element separated by commas.
 
-**CODES**:
+
 ```php
 <?php
 $provinceDetails = array(
@@ -352,7 +351,7 @@ NORTHERN, 5, 40SQM
 
 ### Exercise 2: Pyramid Patterns
 
-**Explanation**: Use nested `for` loops to print numerical pyramid patterns, as specified in the exercises labeled A, B, C.
+Use nested `for` loops to print numerical pyramid patterns, as specified in the exercises labeled A, B, C.
 
 **CODES (Pattern A)**:
 ```php
@@ -437,4 +436,4 @@ for ($i = 1; $i <= 9; $i++) {
 
 **Note**: Patterns B and C produce identical outputs based on the provided specification. Pattern E (star pattern) is not implemented here but can be added if needed.
 
-**Scenario**: A student practices loops by generating pyramid patterns for a web-based math tool, using `for` loops to create dynamic outputs.
+A student practices loops by generating pyramid patterns for a web-based math tool, using `for` loops to create dynamic outputs.

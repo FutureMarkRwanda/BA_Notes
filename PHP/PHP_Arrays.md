@@ -24,7 +24,7 @@ An array is a data structure that stores multiple values of the same data type (
 
 **Example**: Instead of `$food1 = "Pizza"; $food2 = "Burger";`, an array `$foods = ["Pizza", "Burger"]` stores both in one variable.
 
-**Scenario**: A web app uses an array to store product names, enabling dynamic display in a catalog.
+A web app uses an array to store product names, enabling dynamic display in a catalog.
 
 ---
 
@@ -32,7 +32,7 @@ An array is a data structure that stores multiple values of the same data type (
 
 Arrays offer significant benefits over individual variables, improving code efficiency and resource usage.
 
-**Explanation**:
+
 - **Less Code**: Reduces variable declarations for related data.
 - **Easy Traversal**: Simplifies accessing all elements via loops or `foreach`.
 - **Sorting**: Built-in functions (e.g., `sort()`, `asort()`) enable easy ordering.
@@ -40,7 +40,7 @@ Arrays offer significant benefits over individual variables, improving code effi
 
 **Example**: Storing 100 numbers in an array `$numbers` uses less memory and code than 100 separate variables.
 
-**Scenario**: A developer uses an array to manage user scores, sorting them efficiently with `sort()` for a leaderboard.
+A developer uses an array to manage user scores, sorting them efficiently with `sort()` for a leaderboard.
 
 ---
 
@@ -50,11 +50,11 @@ PHP supports three array types: indexed (numeric keys), associative (named keys)
 
 ### Indexed Arrays
 
-**Explanation**: Indexed arrays use numeric indices (starting at 0) to store values like strings, numbers, or objects. They can be declared using direct assignment or the `array()` function.
+ Indexed arrays use numeric indices (starting at 0) to store values like strings, numbers, or objects. They can be declared using direct assignment or the `array()` function.
 
 **Example**: Store movie titles in an indexed array and modify an element.
 
-**CODES**:
+
 ```php
 <?php
 $movie[0] = "Shaolin Monk";
@@ -76,7 +76,7 @@ Eastern Condors
 
 **Example (Using `array()`)**: Store student names and print them.
 
-**CODES**:
+
 ```php
 <?php
 $student_name = array("Amit", "Raj", "Dhiraj", "Shyam");
@@ -97,11 +97,11 @@ Shyam
 
 ### Associative Arrays
 
-**Explanation**: Associative arrays use named keys (strings) to access values, ideal for key-value pairs like user data. Keys are descriptive, improving readability and access.
+Associative arrays use named keys (strings) to access values, ideal for key-value pairs like user data. Keys are descriptive, improving readability and access.
 
 **Example**: Store ages with names as keys and access one value.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -113,11 +113,11 @@ echo "Peter is " . $age['Peter'] . " years old.";
 
 ### Multidimensional Arrays
 
-**Explanation**: Multidimensional arrays contain arrays as elements, enabling complex data structures like tables or nested records. Each sub-array can be indexed or associative.
+Multidimensional arrays contain arrays as elements, enabling complex data structures like tables or nested records. Each sub-array can be indexed or associative.
 
 **Example (Assumed Eg:1)**: Store student grades in a 2D array and access a specific grade.
 
-**CODES**:
+
 ```php
 <?php
 $students = array(
@@ -130,9 +130,9 @@ echo $students[0]["name"] . "'s math grade: " . $students[0]["math"];
 
 **Output**: `John's math grade: 85`
 
-**Example (Assumed Eg:2)**: Display a multidimensional array of marks in HTML.
+**Example 2**: Display a multidimensional array of marks in HTML.
 
-**CODES**:
+
 ```php
 <!DOCTYPE html>
 <html>
@@ -157,9 +157,7 @@ Student 1 Marks: 60, 78, 87
 Student 2 Marks: 67, 80, 92
 ```
 
-**Note**: Examples for multidimensional arrays (Eg:1, Eg:2) were incomplete in the provided content. I assumed logical examples based on context (student data and marks). Please provide specifics if different examples are intended.
-
-**Scenario**: A school management system uses indexed arrays for class lists, associative arrays for student profiles, and multidimensional arrays for grade reports.
+A school management system uses indexed arrays for class lists, associative arrays for student profiles, and multidimensional arrays for grade reports.
 
 ---
 
@@ -169,11 +167,11 @@ Traversing an array means accessing each element to process or display its data,
 
 ### Foreach
 
-**Explanation**: The `foreach` loop is designed for arrays, iterating over each element and assigning values (or keys and values) to variables. It’s simpler than traditional loops for array traversal.
+ The `foreach` loop is designed for arrays, iterating over each element and assigning values (or keys and values) to variables. It’s simpler than traditional loops for array traversal.
 
 **Example**: Traverse an associative array to display keys and values.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -192,11 +190,11 @@ Key=Joe, Value=43
 
 ### For Loop
 
-**Explanation**: The `for` loop traverses indexed arrays by iterating over numeric indices, using `count()` to determine array length. It’s precise but requires manual index management.
+ The `for` loop traverses indexed arrays by iterating over numeric indices, using `count()` to determine array length. It’s precise but requires manual index management.
 
 **Example**: Print marks from an indexed array.
 
-**CODES**:
+
 ```php
 <?php
 $marks = array(60, 78, 87, 67, 80);
@@ -212,11 +210,11 @@ for ($i = 0; $i < count($marks); $i++) {
 
 ### While and Do-While Loops
 
-**Explanation**: `while` loops traverse arrays by checking a condition (e.g., index < array length) before each iteration, while `do-while` ensures at least one iteration. Both are less common than `for` or `foreach` for arrays.
+ `while` loops traverse arrays by checking a condition (e.g., index < array length) before each iteration, while `do-while` ensures at least one iteration. Both are less common than `for` or `foreach` for arrays.
 
 **Example**: Traverse an array using a `while` loop.
 
-**CODES**:
+
 ```php
 <?php
 $days = array("Monday", "Tuesday", "Wednesday");
@@ -235,7 +233,7 @@ Tuesday
 Wednesday
 ```
 
-**Scenario**: A web app traverses an array of products using `foreach` to generate a shopping list and `for` to number items sequentially.
+A web app traverses an array of products using `foreach` to generate a shopping list and `for` to number items sequentially.
 
 ---
 
@@ -245,11 +243,11 @@ PHP provides functions like `var_dump()` and `print_r()` to inspect array struct
 
 ### Var_Dump
 
-**Explanation**: The `var_dump()` function displays detailed information about a variable, including its type, value, and array structure (e.g., element count, indices, string lengths).
+ The `var_dump()` function displays detailed information about a variable, including its type, value, and array structure (e.g., element count, indices, string lengths).
 
 **Example**: Inspect an array element’s structure.
 
-**CODES**:
+
 ```php
 <?php
 $numbers = array('8', '20', '40', '58', '88', '200', '400', '500');
@@ -261,11 +259,11 @@ var_dump($numbers[4]);
 
 ### Print_R
 
-**Explanation**: The `print_r()` function outputs human-readable information about a variable, ideal for viewing array contents and structure. It’s less verbose than `var_dump()`.
+ The `print_r()` function outputs human-readable information about a variable, ideal for viewing array contents and structure. It’s less verbose than `var_dump()`.
 
 **Example**: Display an entire array’s structure.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -289,4 +287,4 @@ Array
 - **Mixed Types**: PHP allows mixed data types in arrays, but ensure consistency for predictable behavior.
 - **Debugging**: Use `var_dump()` for type details, `print_r()` for readable output, or `echo "<pre>"; print_r($array); echo "</pre>";` for formatted HTML output.
 
-**Scenario**: A developer uses `var_dump()` to debug an array of user data and `print_r()` to log array contents for testing.
+A developer uses `var_dump()` to debug an array of user data and `print_r()` to log array contents for testing.

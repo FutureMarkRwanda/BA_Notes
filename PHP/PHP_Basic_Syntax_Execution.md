@@ -138,7 +138,7 @@ PHP scripts can be executed via a web server (e.g., Apache in XAMPP) to generate
 
 **Example**: Let’s run a PHP script to display variable output via both XAMPP and CLI.
 
-**CODES** (variables.php):
+**(variables.php)**:
 ```php
 <?php
 $name = "Alice";

@@ -1,15 +1,5 @@
 # Introduction to PHP
 
-## Summary
-
-This topic introduces PHP (Hypertext Preprocessor), an open-source, server-side, object-oriented scripting language designed for web development. It covers PHP's core characteristics, advantages, and use cases for creating dynamic web applications.
-
-- **PHP Overview**: Understanding PHP and its role in web development.
-- **Key Features**: Exploring PHP's performance, syntax, and capabilities.
-- **Use Cases**: Why PHP is widely used for dynamic websites.
-
----
-
 ## PHP Overview
 
 PHP is a server-side scripting language that generates dynamic web pages by interacting with databases, sessions, and forms. It is open-source, easy to learn, and integrates seamlessly with HTML, making it ideal for web development.
@@ -24,7 +14,6 @@ PHP is a server-side scripting language that generates dynamic web pages by inte
 - A blog uses PHP to fetch and display posts from a MySQL database dynamically.
 - Scenario: A developer chooses PHP to build an e-commerce site due to its simplicity and database support.
 
----
 
 ## Key Features
 
@@ -47,7 +36,6 @@ PHP offers robust features that enhance its suitability for web development.
 - A PHP script connects to MySQL to retrieve user data, displaying it in an HTML table.
 - Scenario: A startup uses PHP’s open-source nature and community resources to build a cost-effective web app.
 
----
 
 ## Use Cases
 

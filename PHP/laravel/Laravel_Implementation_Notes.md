@@ -22,12 +22,12 @@
 - **Libraries and Modular**: Includes object-oriented libraries (e.g., authentication, social media login) and pre-installed libraries not found in other PHP frameworks. Modular design supports responsive PHP development.
 - **Artisan**: A command-line tool for automating repetitive tasks, generating boilerplate code (e.g., MVC files, migrations), and creating custom commands.
 
-## Topic 1: Installation of Laravel with Prerequisites
+# Topic 1: Installation of Laravel with Prerequisites
 
-### Prerequisites
+## Prerequisites
 - Install **Composer** (dependency manager) and **Git** (version control system) before installing Laravel.
 
-#### Composer Installation
+### Composer Installation
 - **Overview**: Composer is a dependency manager for PHP, developed by Nils Adermann and Jordi Boggiano (started April 2011, released March 1, 2012). It manages libraries and dependencies via the command line, using **Packagist** as its main repository.
 - **Purpose**: Installs dependencies, provides autoloading for libraries, and simplifies package integration.
 - **Key Commands**:
@@ -59,7 +59,7 @@
       ```
       - Displays Composer version and commands if successful.
 
-#### Git Installation
+### Git Installation
 - **Overview**: Git is a version control system for tracking code changes and facilitating collaboration.
 - **Steps to Install Git (Windows)**:
   1. Download Git from: [https://git-scm.com/downloads/](https://git-scm.com/downloads/).

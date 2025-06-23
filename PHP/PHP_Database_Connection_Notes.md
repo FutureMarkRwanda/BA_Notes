@@ -47,24 +47,24 @@
 
 ### First Method: MySQLi (Object-Oriented)
 - Uses the MySQL Improved extension (`mysqli`).
-- **Code Example**:
-  ```php
-  <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "student_db";
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $database);
+```php
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "student_db";
 
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
-  echo "Connected successfully";
-  ?>
-  ```
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+```
 - **Key Points**:
   - Requires server name, username, password, and database name.
   - Checks for connection errors using `connect_error`.
@@ -72,23 +72,23 @@
 
 ### Second Method: MySQLi (Procedural)
 - Also uses the MySQLi extension but in a procedural style.
-- **Code Example**:
-  ```php
-  <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
 
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password);
+```php
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
 
-  // Check connection
-  if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-  }
-  echo "Connected successfully";
-  ?>
-  ```
+// Create connection
+$conn = mysqli_connect($servername, $username, $password);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+?>
+```
 - **Key Points**:
   - Similar to the object-oriented method but uses procedural functions like `mysqli_connect()`.
   - Does not specify the database during connection; the database can be selected later using `mysqli_select_db()`.
@@ -96,24 +96,24 @@
 
 ### Third Method: PHP Data Objects (PDO)
 - Uses PDO for a more flexible and secure connection, supporting multiple database types.
-- **Code Example**:
-  ```php
-  <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "student_db";
 
-  try {
-      $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-      // Set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Connected successfully";
-  } catch(PDOException $e) {
-      echo "Connection failed: " . $e->getMessage();
-  }
-  ?>
-  ```
+```php
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "student_db";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
+```
 - **Key Points**:
   - Uses a DSN (Data Source Name) string to specify the database type and details.
   - Sets error mode to throw exceptions for better error handling.

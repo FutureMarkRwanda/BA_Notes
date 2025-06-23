@@ -18,54 +18,54 @@
   $obj = new MyClass;
   ```
 - **Example**: Class to display a person's full name.
-  ```php
-  class Person {
-      public $firstName;
-      public $lastName;
+```php
+class Person {
+    public $firstName;
+    public $lastName;
 
-      public function displayFullName() {
-          echo "Full Name: {$this->firstName} {$this->lastName}\n";
-      }
-  }
+    public function displayFullName() {
+        echo "Full Name: {$this->firstName} {$this->lastName}\n";
+    }
+}
 
-  $person = new Person();
-  $person->firstName = 'KABANDANA';
-  $person->lastName = 'Emmanuel';
-  $person->displayFullName(); // Outputs: Full Name: KABANDANA Emmanuel
-  ```
+$person = new Person();
+$person->firstName = 'KABANDANA';
+$person->lastName = 'Emmanuel';
+$person->displayFullName(); // Outputs: Full Name: KABANDANA Emmanuel
+```
 
 ### Encapsulation
 - **Definition**: Bundling data and methods within a class, controlling access using access modifiers (`public`, `private`, `protected`).
 - **Purpose**: Enhances security by hiding internal implementation details and exposing only necessary interfaces.
 - **Example**:
-  ```php
-  class Fruit {
-      private $name;
-      private $color;
+```php
+class Fruit {
+    private $name;
+    private $color;
 
-      public function set_name($name) {
-          $this->name = $name;
-      }
+    public function set_name($name) {
+        $this->name = $name;
+    }
 
-      public function get_name() {
-          return $this->name;
-      }
+    public function get_name() {
+        return $this->name;
+    }
 
-      public function set_color($color) {
-          $this->color = $color;
-      }
+    public function set_color($color) {
+        $this->color = $color;
+    }
 
-      public function get_color() {
-          return $this->color;
-      }
-  }
+    public function get_color() {
+        return $this->color;
+    }
+}
 
-  $apple = new Fruit();
-  $apple->set_name('Apple');
-  $apple->set_color('Red');
-  echo 'Name: ' . $apple->get_name() . '<br>'; // Outputs: Name: Apple
-  echo 'Color: ' . $apple->get_color(); // Outputs: Color: Red
-  ```
+$apple = new Fruit();
+$apple->set_name('Apple');
+$apple->set_color('Red');
+echo 'Name: ' . $apple->get_name() . '<br>'; // Outputs: Name: Apple
+echo 'Color: ' . $apple->get_color(); // Outputs: Color: Red
+```
 
 ### Inheritance
 - **Definition**: Allows a child class to inherit properties and methods from a parent class, enabling code reuse and extension.
@@ -96,95 +96,95 @@
 - **Definition**: Allows objects of different classes to be treated as objects of a common superclass or interface, using method overriding or interfaces.
 - **Method Overriding**: A child class provides its own implementation of a parent class method.
 - **Example**:
-  ```php
-  class Animal {
-      public function makeSound() {
-          echo "Some generic sound\n";
-      }
-  }
+```php
+class Animal {
+    public function makeSound() {
+        echo "Some generic sound\n";
+    }
+}
 
-  class Dog extends Animal {
-      public function makeSound() {
-          echo "Woof!\n";
-      }
-  }
+class Dog extends Animal {
+    public function makeSound() {
+        echo "Woof!\n";
+    }
+}
 
-  $dog = new Dog();
-  $dog->makeSound(); // Outputs: Woof!
-  ```
+$dog = new Dog();
+$dog->makeSound(); // Outputs: Woof!
+```
 
 ### Abstraction
 - **Definition**: Hides implementation details, exposing only essential interfaces via abstract classes or interfaces.
 - **Abstract Class**: Cannot be instantiated; meant to be extended. Defined with the `abstract` keyword.
 - **Interface**: Defines methods that implementing classes must provide, using the `interface` and `implements` keywords.
 - **Example (Interface)**:
-  ```php
-  interface Shape {
-      public function calculateArea();
-  }
+```php
+interface Shape {
+    public function calculateArea();
+}
 
-  class Circle implements Shape {
-      private $radius;
+class Circle implements Shape {
+    private $radius;
 
-      public function __construct($radius) {
-          $this->radius = $radius;
-      }
+    public function __construct($radius) {
+        $this->radius = $radius;
+    }
 
-      public function calculateArea() {
-          return pi() * $this->radius * $this->radius;
-      }
-  }
+    public function calculateArea() {
+        return pi() * $this->radius * $this->radius;
+    }
+}
 
-  $circle = new Circle(5);
-  echo $circle->calculateArea(); // Outputs: 78.539816339745
-  ```
+$circle = new Circle(5);
+echo $circle->calculateArea(); // Outputs: 78.539816339745
+```
 
 ### Constructors and Destructors
 - **Constructor**: Special method (`__construct`) called when an object is created, used for initialization.
 - **Destructor**: Special method (`__destruct`) called when an object is no longer referenced, used for cleanup.
 - **Example**:
-  ```php
-  class Example {
-      public function __construct() {
-          echo "Object created\n";
-      }
+```php
+class Example {
+    public function __construct() {
+        echo "Object created\n";
+    }
 
-      public function __destruct() {
-          echo "Object destroyed\n";
-      }
-  }
+    public function __destruct() {
+        echo "Object destroyed\n";
+    }
+}
 
-  $obj = new Example(); // Outputs: Object created
-  unset($obj); // Outputs: Object destroyed
-  ```
+$obj = new Example(); // Outputs: Object created
+unset($obj); // Outputs: Object destroyed
+```
 
 ## Access Modifiers
 - **Public**: Accessible from anywhere (default).
 - **Private**: Accessible only within the class.
 - **Protected**: Accessible within the class and its subclasses.
 - **Example**:
-  ```php
-  class Test {
-      public $publicVar = "Public";
-      private $privateVar = "Private";
-      protected $protectedVar = "Protected";
+```php
+class Test {
+    public $publicVar = "Public";
+    private $privateVar = "Private";
+    protected $protectedVar = "Protected";
 
-      public function accessVars() {
-          echo $this->privateVar; // Accessible within class
-      }
-  }
+    public function accessVars() {
+        echo $this->privateVar; // Accessible within class
+    }
+}
 
-  class SubTest extends Test {
-      public function accessProtected() {
-          echo $this->protectedVar; // Accessible in subclass
-      }
-  }
+class SubTest extends Test {
+    public function accessProtected() {
+        echo $this->protectedVar; // Accessible in subclass
+    }
+}
 
-  $obj = new Test();
-  echo $obj->publicVar; // Outputs: Public
-  // echo $obj->privateVar; // Error: Cannot access private property
-  // echo $obj->protectedVar; // Error: Cannot access protected property
-  ```
+$obj = new Test();
+echo $obj->publicVar; // Outputs: Public
+// echo $obj->privateVar; // Error: Cannot access private property
+// echo $obj->protectedVar; // Error: Cannot access protected property
+```
 
 ## Advantages of OOP
 - **Modularity**: Breaks complex problems into manageable classes, enhancing code organization and reusability.
@@ -208,17 +208,17 @@
 ## The `$this` Variable
 - **Definition**: A special variable used within a class to refer to the current object, accessing its properties and methods.
 - **Example**:
-  ```php
-  class NumberAdd {
-      public function addNumbers($num1, $num2) {
-          $sum = $num1 + $num2;
-          echo "The sum of $num1 and $num2 is= $sum ";
-      }
-  }
+```php
+class NumberAdd {
+    public function addNumbers($num1, $num2) {
+        $sum = $num1 + $num2;
+        echo "The sum of $num1 and $num2 is= $sum ";
+    }
+}
 
-  $addition = new NumberAdd();
-  $addition->addNumbers(15, 10); // Outputs: The sum of 15 and 10 is= 25
-  ```
+$addition = new NumberAdd();
+$addition->addNumbers(15, 10); // Outputs: The sum of 15 and 10 is= 25
+```
 
 ## Practical Notes
 - Use meaningful class and method names for clarity.

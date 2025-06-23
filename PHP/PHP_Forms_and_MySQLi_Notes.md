@@ -74,6 +74,8 @@
 | `use_result()`               | Initiates retrieval of a result-set from the last query executed.              |
 | `warning_count()`            | Returns the number of warnings from the last query in the connection.          |
 
+[More info](https://www.php.net/manual/en/book.mysqli.php)
+
 - **mysqli_num_rows()**:
   - Returns the number of rows in a result set.
   - Used to check if data exists in the database.

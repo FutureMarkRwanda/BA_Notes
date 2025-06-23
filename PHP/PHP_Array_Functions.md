@@ -20,11 +20,11 @@ These functions search arrays for values or keys, check existence, or return cor
 
 ### In_Array
 
-**Explanation**: The `in_array()` function checks if a value exists in an array, returning `TRUE` if found, `FALSE` otherwise. It’s case-sensitive for strings and accepts an optional type parameter for strict type checking.
+The `in_array()` function checks if a value exists in an array, returning `TRUE` if found, `FALSE` otherwise. It’s case-sensitive for strings and accepts an optional type parameter for strict type checking.
 
 **Example**: Check if car brands exist in an array.
 
-**CODES**:
+
 ```php
 <?php
 $cars = ["benz", "bmw", "audi", "bugatti"];
@@ -41,11 +41,11 @@ if (in_array("bmw", $cars)) {
 
 ### Array_Search
 
-**Explanation**: The `array_search()` function returns the key of a value in an array if found, or `FALSE` otherwise. It’s case-sensitive for strings.
+The `array_search()` function returns the key of a value in an array if found, or `FALSE` otherwise. It’s case-sensitive for strings.
 
 **Example**: Find the key of a color in an array.
 
-**CODES**:
+
 ```php
 <?php
 $colors = array("First-color" => "red", "Second-color" => "green", "Third-color" => "blue");
@@ -57,11 +57,12 @@ echo array_search("red", $colors);
 
 ### Array_Key_Exists
 
-**Explanation**: The `array_key_exists()` function checks if a key or index exists in an array, returning `TRUE` if found, `FALSE` otherwise.
+The `array_key_exists()` function checks if a key or index exists in an array, returning `TRUE` if found, `FALSE` otherwise.
 
+A web app uses `in_array()` to validate user input against allowed options and `array_search()` to retrieve a user’s ID from a name-keyed array.
 **Example**: Verify if a key exists in an array.
 
-**CODES**:
+
 ```php
 <?php
 $search_array = array("first" => 1, "second" => 4);
@@ -73,7 +74,6 @@ if (array_key_exists("first", $search_array)) {
 
 **Output**: `The 'first' element is in the array`
 
-**Scenario**: A web app uses `in_array()` to validate user input against allowed options and `array_search()` to retrieve a user’s ID from a name-keyed array.
 
 ---
 
@@ -83,11 +83,11 @@ These functions add, remove, or replace array elements, enabling dynamic array m
 
 ### Array_Push
 
-**Explanation**: The `array_push()` function adds one or more elements to the end of an array, updating its length.
+The `array_push()` function adds one or more elements to the end of an array, updating its length.
 
 **Example**: Add fruits to an array.
 
-**CODES**:
+
 ```php
 <?php
 $stack = array("orange", "banana");
@@ -109,11 +109,11 @@ Array
 
 ### Array_Pop
 
-**Explanation**: The `array_pop()` function removes and returns the last element of an array, shortening it by one.
+The `array_pop()` function removes and returns the last element of an array, shortening it by one.
 
 **Example**: Remove the last fruit from an array.
 
-**CODES**:
+
 ```php
 <?php
 $stack = array("orange", "banana", "apple", "raspberry");
@@ -136,11 +136,11 @@ Popped: raspberry
 
 ### Array_Shift
 
-**Explanation**: The `array_shift()` function removes and returns the first element of an array, reindexing numeric keys and shortening the array.
+The `array_shift()` function removes and returns the first element of an array, reindexing numeric keys and shortening the array.
 
 **Example**: Remove the first fruit from an array.
 
-**CODES**:
+
 ```php
 <?php
 $stack = array("orange", "banana", "apple", "raspberry");
@@ -163,11 +163,11 @@ Shifted: orange
 
 ### Array_Replace
 
-**Explanation**: The `array_replace()` function replaces values in the first array with values from subsequent arrays, preserving keys. For associative arrays, later arrays’ values overwrite earlier ones for matching keys.
+The `array_replace()` function replaces values in the first array with values from subsequent arrays, preserving keys. For associative arrays, later arrays’ values overwrite earlier ones for matching keys.
 
 **Example**: Replace colors in one array with another.
 
-**CODES**:
+
 ```php
 <?php
 $a1 = array("a" => "red", "b" => "green");
@@ -187,11 +187,11 @@ Array
 
 ### Array_Slice
 
-**Explanation**: The `array_slice()` function extracts a portion of an array, starting at a specified position, with an optional length. A boolean `preserve_keys` parameter retains original keys if `TRUE`.
+The `array_slice()` function extracts a portion of an array, starting at a specified position, with an optional length. A boolean `preserve_keys` parameter retains original keys if `TRUE`.
 
 **Example**: Extract a single element from an array.
 
-**CODES**:
+
 ```php
 <?php
 $array = [1, 2, 3, 4, 5, 6];
@@ -207,7 +207,7 @@ Array
 )
 ```
 
-**Scenario**: A shopping cart app uses `array_push()` to add items, `array_pop()` to remove the last item, and `array_slice()` to display a subset of items.
+A shopping cart app uses `array_push()` to add items, `array_pop()` to remove the last item, and `array_slice()` to display a subset of items.
 
 ---
 
@@ -217,11 +217,11 @@ These functions sort arrays by values or keys in ascending or descending order, 
 
 ### Sort
 
-**Explanation**: The `sort()` function sorts an indexed array in ascending order, reindexing numeric keys. It handles numbers numerically and strings alphabetically.
+The `sort()` function sorts an indexed array in ascending order, reindexing numeric keys. It handles numbers numerically and strings alphabetically.
 
 **Example**: Sort numbers in ascending order.
 
-**CODES**:
+
 ```php
 <?php
 $arr = array(21, 19, 20, 16, 25);
@@ -244,11 +244,11 @@ Array
 
 ### Asort
 
-**Explanation**: The `asort()` function sorts an associative array in ascending order by value, preserving keys.
+The `asort()` function sorts an associative array in ascending order by value, preserving keys.
 
 **Example**: Sort ages by value.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Gizo" => 11, "Saad" => 13, "Joe" => 23);
@@ -268,11 +268,11 @@ Key=Joe, Value=23
 
 ### Arsort
 
-**Explanation**: The `arsort()` function sorts an associative array in descending order by value, preserving keys.
+The `arsort()` function sorts an associative array in descending order by value, preserving keys.
 
 **Example**: Sort ages in descending order.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -292,11 +292,11 @@ Name: Peter and Age: 35
 
 ### Ksort
 
-**Explanation**: The `ksort()` function sorts an associative array in ascending order by key, preserving key-value pairs.
+The `ksort()` function sorts an associative array in ascending order by key, preserving key-value pairs.
 
 **Example**: Sort ages by key.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -316,11 +316,11 @@ Key=Peter, Value=35
 
 ### Krsort
 
-**Explanation**: The `krsort()` function sorts an associative array in descending order by key, preserving key-value pairs.
+The `krsort()` function sorts an associative array in descending order by key, preserving key-value pairs.
 
 **Example**: Sort ages in descending order by key.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -338,7 +338,7 @@ Key=Joe, Value=43
 Key=Ben, Value=37
 ```
 
-**Scenario**: A leaderboard app uses `sort()` for scores, `asort()` for user rankings by points, and `ksort()` for alphabetical user lists.
+A leaderboard app uses `sort()` for scores, `asort()` for user rankings by points, and `ksort()` for alphabetical user lists.
 
 ---
 
@@ -348,11 +348,11 @@ These functions merge arrays or find differences/intersections, useful for data 
 
 ### Array_Merge
 
-**Explanation**: The `array_merge()` function combines two or more arrays, appending elements. For associative arrays, later arrays overwrite earlier ones for duplicate keys.
+The `array_merge()` function combines two or more arrays, appending elements. For associative arrays, later arrays overwrite earlier ones for duplicate keys.
 
 **Example**: Merge two arrays.
 
-**CODES**:
+
 ```php
 <?php
 $array1 = array(2, 3, 4, 5, 6);
@@ -382,11 +382,11 @@ Array
 
 ### Array_Diff
 
-**Explanation**: The `array_diff()` function returns elements in the first array not present in subsequent arrays, based on values.
+The `array_diff()` function returns elements in the first array not present in subsequent arrays, based on values.
 
 **Example**: Find colors in one array not in another.
 
-**CODES**:
+
 ```php
 <?php
 $array1 = array("a" => "green", "red", "blue", "red");
@@ -406,11 +406,11 @@ Array
 
 ### Array_Intersect
 
-**Explanation**: The `array_intersect()` function returns an array of values common to all input arrays, preserving the first array’s keys.
+The `array_intersect()` function returns an array of values common to all input arrays, preserving the first array’s keys.
 
 **Example**: Find common colors in two arrays.
 
-**CODES**:
+
 ```php
 <?php
 $array1 = array("red", "green", "blue");
@@ -428,7 +428,7 @@ Array
 )
 ```
 
-**Scenario**: A data analysis tool uses `array_merge()` to combine datasets, `array_diff()` to identify unique entries, and `array_intersect()` to find shared values.
+A data analysis tool uses `array_merge()` to combine datasets, `array_diff()` to identify unique entries, and `array_intersect()` to find shared values.
 
 ---
 
@@ -438,11 +438,11 @@ These functions compute properties or display array contents, aiding debugging a
 
 ### Array_Sum
 
-**Explanation**: The `array_sum()` function calculates the sum of numeric values in an array, supporting integers and floats.
+The `array_sum()` function calculates the sum of numeric values in an array, supporting integers and floats.
 
 **Example**: Sum values in two arrays.
 
-**CODES**:
+
 ```php
 <?php
 $a = array(2, 4, 6, 8);
@@ -460,11 +460,11 @@ Sum(b)= 6.9
 
 ### Array_Product
 
-**Explanation**: The `array_product()` function calculates the product of numeric values in an array, returning 0 if strings are present.
+The `array_product()` function calculates the product of numeric values in an array, returning 0 if strings are present.
 
 **Example**: Compute products of arrays.
 
-**CODES**:
+
 ```php
 <?php
 $products = array(12, 3, 4, 2);
@@ -481,11 +481,11 @@ echo array_product(array(12, "ru", 4, 2));
 
 ### Sizeof (Count)
 
-**Explanation**: The `sizeof()` function (alias for `count()`) returns the number of elements in an array.
+The `sizeof()` function (alias for `count()`) returns the number of elements in an array.
 
 **Example**: Count elements in an array.
 
-**CODES**:
+
 ```php
 <?php
 $score = array(12, 1, 45, 6, 7);
@@ -497,11 +497,11 @@ echo sizeof($score);
 
 ### Print_R
 
-**Explanation**: The `print_r()` function displays human-readable array contents, useful for debugging. Use `<pre>` tags for formatted HTML output.
+The `print_r()` function displays human-readable array contents, useful for debugging. Use `<pre>` tags for formatted HTML output.
 
 **Example**: Display an array’s structure.
 
-**CODES**:
+
 ```php
 <?php
 $age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
@@ -523,7 +523,7 @@ Array
 
 **Note**: `var_dump()` is covered in the **Arrays** topic and omitted here to avoid redundancy.
 
-**Scenario**: A developer uses `array_sum()` for cart totals, `sizeof()` to check form input count, and `print_r()` to debug array data.
+A developer uses `array_sum()` for cart totals, `sizeof()` to check form input count, and `print_r()` to debug array data.
 
 ---
 
@@ -533,11 +533,11 @@ These functions manage the array’s internal pointer, accessing or moving to sp
 
 ### Current
 
-**Explanation**: The `current()` function returns the value of the current element, where the internal pointer resides, without moving the pointer.
+The `current()` function returns the value of the current element, where the internal pointer resides, without moving the pointer.
 
 **Example**: Access the current element.
 
-**CODES**:
+
 ```php
 <?php
 $score = [1, 2, 3, 4];
@@ -549,11 +549,11 @@ echo current($score);
 
 ### Next
 
-**Explanation**: The `next()` function advances the pointer and returns the next element’s value.
+The `next()` function advances the pointer and returns the next element’s value.
 
 **Example**: Move to and access the next element.
 
-**CODES**:
+
 ```php
 <?php
 $people = array("Peter", "Joe", "Glenn", "Cleveland");
@@ -570,11 +570,11 @@ Joe
 
 ### Prev
 
-**Explanation**: The `prev()` function rewinds the pointer and returns the previous element’s value.
+The `prev()` function rewinds the pointer and returns the previous element’s value.
 
 **Example**: Move back to the previous element.
 
-**CODES**:
+
 ```php
 <?php
 $people = array("Peter", "Joe", "Glenn", "Cleveland");
@@ -593,11 +593,11 @@ Peter
 
 ### End
 
-**Explanation**: The `end()` function moves the pointer to the last element and returns its value, or `FALSE` for an empty array.
+The `end()` function moves the pointer to the last element and returns its value, or `FALSE` for an empty array.
 
 **Example**: Access the last element.
 
-**CODES**:
+
 ```php
 <?php
 $scores = [23, 44, 65, 33];
@@ -609,11 +609,11 @@ echo end($scores);
 
 ### Reset
 
-**Explanation**: The `reset()` function moves the pointer to the first element and returns its value.
+The `reset()` function moves the pointer to the first element and returns its value.
 
 **Example**: Reset the pointer to the first element.
 
-**CODES**:
+
 ```php
 <?php
 $provinces = ["Eastern", "Western", "Southern", "Northern", "Kigali City"];
@@ -625,7 +625,115 @@ echo current($provinces);
 ?>
 ```
 
-**Output**:
+### Each *(Deprecated)*
+
+The `each()` function returns the current key and value pair from an array and advances the array cursor. It has been **deprecated** as of PHP 7.2.0 and removed in PHP 8.0.0. Use a `foreach` loop instead.
+
+**Example**: Iterate through an array using `each()` *(for older PHP versions)*.
+
+
+
+```php
+<?php
+$fruits = array("a" => "apple", "b" => "banana");
+reset($fruits);
+while (list($key, $val) = each($fruits)) {
+    echo "$key => $val<br>";
+}
+?>
 ```
-Eastern
-Western
+
+**Output**:
+
+```
+a => apple  
+b => banana
+```
+
+Use `current()`, `next()`, `prev()`, `end()`, and `reset()` to manually control traversal through an array in cases where precise control of the pointer is needed, such as in custom iteration logic.
+
+---
+
+## Miscellaneous Array Functions
+
+These functions provide utility operations like selecting random elements, ensuring uniqueness, or extracting values.
+
+### Array\_Rand
+
+The `array_rand()` function selects one or more random keys from an array. Returns a single key if the second parameter is `1`, or an array of keys otherwise.
+
+**Example**: Select random keys.
+
+
+
+```php
+<?php
+$colors = array("red", "green", "blue", "yellow");
+$randomKey = array_rand($colors);
+echo "Random color: " . $colors[$randomKey];
+?>
+```
+
+**Output**: *(varies)*
+
+```
+Random color: blue
+```
+
+### Array\_Unique
+
+The `array_unique()` function removes duplicate values from an array, keeping the first occurrence and preserving keys.
+
+**Example**: Remove duplicate numbers.
+
+
+
+```php
+<?php
+$nums = array(1, 2, 2, 3, 4, 4, 5);
+$unique = array_unique($nums);
+print_r($unique);
+?>
+```
+
+**Output**:
+
+```
+Array
+(
+    [0] => 1
+    [1] => 2
+    [3] => 3
+    [4] => 4
+    [6] => 5
+)
+```
+
+### Array\_Values
+
+The `array_values()` function returns all the values from an array and reindexes the array numerically.
+
+**Example**: Extract only values from an associative array.
+
+
+
+```php
+<?php
+$assoc = array("a" => "apple", "b" => "banana", "c" => "cherry");
+$values = array_values($assoc);
+print_r($values);
+?>
+```
+
+**Output**:
+
+```
+Array
+(
+    [0] => apple
+    [1] => banana
+    [2] => cherry
+)
+```
+
+An app might use `array_rand()` to generate random questions, `array_unique()` to clean a dataset, and `array_values()` to flatten associative arrays into indexed ones for export.
