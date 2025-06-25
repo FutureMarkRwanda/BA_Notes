@@ -80,7 +80,7 @@ Subnetting techniques vary in flexibility and efficiency, including Fixed-Length
   - Each subnet is 192.168.10.x/26, where x is 0, 64, 128, 192.
 
 **Example Configuration** (Cisco Router for Subnet 1 and 2):
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# hostname R1
@@ -155,7 +155,7 @@ Implementing subnetting involves configuring devices with correct IPs, masks, an
 - `ping <destination>`: Tests connectivity.
 
 Example output for `show ip interface brief` on R1:
-```
+```bash
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     192.168.10.1    YES manual up                    up
 GigabitEthernet0/1     192.168.10.65   YES manual up                    up
@@ -178,7 +178,7 @@ GigabitEthernet0/1     192.168.10.65   YES manual up                    up
 | Routing Issues       | Subnets unreachable           | Add static routes or routing protocol|
 
 **Example Verification**:
-```
+```bash
 R1# ping 192.168.10.70
 Sending 5, 100-byte ICMP Echos to 192.168.10.70, timeout is 2 seconds:
 !!!!!

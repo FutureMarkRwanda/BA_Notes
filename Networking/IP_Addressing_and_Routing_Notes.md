@@ -43,7 +43,7 @@ Address types:
 - **Anycast**: For the nearest interface in a group.
 
 Example configuration on a Cisco router:
-```
+```bash
 Router(config)# ipv6 unicast-routing
 Router(config)# interface g0/0
 Router(config-if)# ipv6 enable
@@ -55,7 +55,7 @@ Router(config-if)# ipv6 address 2003:DB0:AAAA:B::1/64
 ```
 
 Verification:
-```
+```bash
 Router# show ipv6 interface brief
 Router# ping 2003:DB0:AAAA:B::2
 ```

@@ -41,6 +41,7 @@ IP addresses are categorized into **IPv4** and **IPv6**, with historical **class
 - **IPv6**: 128-bit, hexadecimal with colons (e.g., 2001:0db8:85a3::2c1f), ~3.4 × 10^38 addresses.
 
 **Classful Addressing** (IPv4, largely replaced by CIDR):
+
 | Class | First Octet Range | Default Address Range       | Example Address         | Use Case                     |
 |-------|-------------------|-----------------------------|-------------------------|------------------------------|
 | A     | 1–126             | 1.0.0.0–126.255.255.255     | 10.52.3.11              | Large networks, many hosts   |

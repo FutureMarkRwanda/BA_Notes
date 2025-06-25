@@ -94,7 +94,7 @@ Designing a VLSM scheme involves calculating subnet sizes based on host requirem
 - R2 connects IT (/26) LAN and the link to R1 (/30).
 
 **Step 6: Configure Routers**:
-```
+```bash
 ! Router R1 (Sales, HR, and Link to R2)
 R1> enable
 R1# configure terminal
@@ -137,7 +137,7 @@ R2# copy running-config startup-config
 ```
 
 **Step 7: Configure DHCP for LANs** (Optional, for dynamic IP assignment):
-```
+```bash
 ! On R1 for Sales and HR
 R1(config)# ip dhcp pool SALES
 R1(config-dhcp)# network 172.16.0.0 255.255.255.128
@@ -209,7 +209,7 @@ S    172.16.0.128/26 [1/0] via 172.16.0.226
 | DHCP Misconfiguration | Incorrect client IPs          | Match DHCP pool to subnet mask       |
 
 **Verification Example**:
-```
+```bash
 R1# ping 172.16.0.130
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 172.16.0.130, timeout is 2 seconds:
