@@ -34,7 +34,7 @@ STP (Spanning Tree Protocol) ensures loop-free Layer 2 networks by selectively b
 
 **Topology Changes**: Triggered by link failures, switch failures, or ports entering forwarding state, prompting STP to recalculate the topology.
 
-Scenario: A campus network with redundant switch links uses STP to prevent loops, electing one switch as the root bridge and blocking redundant ports to ensure stable communication.
+A campus network with redundant switch links uses STP to prevent loops, electing one switch as the root bridge and blocking redundant ports to ensure stable communication.
 
 ---
 
@@ -43,7 +43,8 @@ Scenario: A campus network with redundant switch links uses STP to prevent loops
 Configuring STP involves setting the bridge priority to influence root bridge election, changing STP modes (e.g., Rapid Per-VLAN Spanning Tree), and ensuring proper port roles. By default, Cisco switches run Per-VLAN Spanning Tree (PVST), creating a separate STP instance per VLAN.
 
 **Example Configuration** for a network with two switches (SW1, SW2) and VLANs 10 and 20:
-```
+![Diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750950253/Capture_d_%C3%A9cran_du_2025-06-26_17-03-56_rfm2rs.png)
+```bash
 ! On SW1 (desired root bridge for VLAN 10)
 SW1> enable
 SW1# configure terminal
@@ -113,7 +114,7 @@ SW2# copy running-config startup-config
 - Rapid Per-VLAN Spanning Tree (RPVST) is enabled for faster convergence.
 - Alternatively, use `spanning-tree vlan <ID> root primary` to set the root bridge dynamically.
 
-Scenario: A school network configures SW1 as the root bridge for VLAN 10 (student devices) and SW2 for VLAN 20 (teacher devices), using RPVST to ensure fast recovery from link failures.
+A school network configures SW1 as the root bridge for VLAN 10 (student devices) and SW2 for VLAN 20 (teacher devices), using RPVST to ensure fast recovery from link failures.
 
 ---
 
@@ -127,7 +128,7 @@ Verifying STP confirms the root bridge, port roles, and topology status. Trouble
 - `show spanning-tree summary`: Summarizes STP mode and root bridge status.
 
 Example output for `show spanning-tree vlan 10` on SW1:
-```
+```bash
 VLAN0010
   Spanning tree enabled protocol rapid-pvst
   Root ID    Priority    4106
@@ -157,7 +158,7 @@ Example troubleshooting scenario: SW2’s fa0/24 is blocked for VLAN 10, but it 
 | STP Mode Mismatch    | Inconsistent convergence      | Align `spanning-tree mode <mode>`     |
 | BPDU Not Received    | No root bridge communication  | Check connectivity and timers         |
 
-Scenario: An admin notices network instability. `show spanning-tree` reveals frequent topology changes due to a flapping link. Disabling the unstable port stabilizes the topology.
+An admin notices network instability. `show spanning-tree` reveals frequent topology changes due to a flapping link. Disabling the unstable port stabilizes the topology.
 
 ---
 
@@ -180,4 +181,4 @@ STP has evolved to address convergence speed and scalability:
 | Convergence          | 30–50 seconds                 | Seconds                      |
 | Link Types           | None                          | Point-to-Point, Shared       |
 
-Scenario: A large enterprise switches from PVST to MSTP to reduce CPU load by grouping VLANs into fewer STP instances, improving scalability.
+A large enterprise switches from PVST to MSTP to reduce CPU load by grouping VLANs into fewer STP instances, improving scalability.

@@ -23,7 +23,7 @@ Securing switch access prevents unauthorized management and ensures only trusted
 **MOTD Banner**: Displays warnings to deter unauthorized access.
 
 **Example Configuration**:
-```
+```bash
 ! On Switch
 switch> enable
 switch# configure terminal
@@ -58,7 +58,7 @@ switch1(config)# exit
 switch1# copy running-config startup-config
 ```
 
-Scenario: A corporate network configures a switch with SSH for secure remote management, restricts Telnet to specific IPs, and sets a management IP for monitoring.
+A corporate network configures a switch with SSH for secure remote management, restricts Telnet to specific IPs, and sets a management IP for monitoring.
 
 ---
 
@@ -76,7 +76,7 @@ Strong password policies and port security protect the switch from unauthorized 
 - Configurable actions: shutdown, restrict, or protect.
 
 **Example Configuration**:
-```
+```bash
 ! Password Security
 switch1# configure terminal
 switch1(config)# enable secret somestrongpass
@@ -101,7 +101,7 @@ switch1(config-if)# exit
 switch1# copy running-config startup-config
 ```
 
-Scenario: A small office switch enforces a 9-character password policy, encrypts passwords, disables unused ports, and restricts fa0/1 to one device to prevent unauthorized connections.
+A small office switch enforces a 9-character password policy, encrypts passwords, disables unused ports, and restricts fa0/1 to one device to prevent unauthorized connections.
 
 ---
 
@@ -130,7 +130,7 @@ Switches are vulnerable to various attacks targeting Layer 2 operations. Underst
   - **Countermeasure**: Configure violation actions (shutdown, restrict, protect) and monitor logs.
 
 **Example Countermeasure Configuration** (for VLAN hopping and DHCP snooping):
-```
+```bash
 switch1# configure terminal
 switch1(config)# interface fa0/1
 switch1(config-if)# switchport mode access
@@ -144,7 +144,7 @@ switch1(config-if)# exit
 switch1# copy running-config startup-config
 ```
 
-Scenario: A university switch mitigates VLAN hopping by disabling DTP and enables DHCP snooping to block rogue DHCP servers, ensuring secure VLAN and IP assignments.
+A university switch mitigates VLAN hopping by disabling DTP and enables DHCP snooping to block rogue DHCP servers, ensuring secure VLAN and IP assignments.
 
 ---
 
@@ -163,7 +163,7 @@ Verifying switch security confirms access controls, port security, and counterme
 - `show access-lists`: Checks Telnet access lists.
 
 Example output for `show port-security` on switch1:
-```
+```bash
 Secure Port  MaxSecureAddr  CurrentAddr  SecurityViolation  Security Action
               (Count)       (Count)      (Count)
 ------------------------------------------------------------------------
@@ -187,4 +187,4 @@ Example troubleshooting scenario: Users cannot access switch1 via SSH. `show ip 
 | Port Security Violation | Port shut down             | Clear with `no shutdown`             |
 | Telnet Denied        | Access blocked                | Adjust `ip access-list`               |
 
-Scenario: An admin finds fa0/1 shut down due to a port security violation. `show port-security` confirms an unauthorized MAC. Clearing the port with `no shutdown` after removing the device restores connectivity.
+An admin finds fa0/1 shut down due to a port security violation. `show port-security` confirms an unauthorized MAC. Clearing the port with `no shutdown` after removing the device restores connectivity.

@@ -28,7 +28,7 @@ Key features:
 - Reduces routing updates within areas.
 - Uses router IDs (highest loopback IP, or highest physical IP, or manually set) to uniquely identify routers.
 
-Scenario: A campus network uses OSPFv2 in Area 0 to connect three LANs, minimizing routing updates and ensuring fast convergence.
+A campus network uses OSPFv2 in Area 0 to connect three LANs, minimizing routing updates and ensuring fast convergence.
 
 ---
 
@@ -37,7 +37,8 @@ Scenario: A campus network uses OSPFv2 in Area 0 to connect three LANs, minimizi
 Configuring OSPFv2 in a single area involves enabling OSPF with a process ID, setting a router ID, and advertising networks with their area IDs. The `network` command specifies interfaces to run OSPF and networks to advertise, using wildcard masks.
 
 Example configuration for three routers (R1, R2, R3) connecting LAN1 (192.168.100.0/24), LAN2 (192.168.230.0/24), LAN3 (192.168.200.0/24), and serial links (10.10.10.0/30, 10.10.10.4/30, 10.10.10.8/30):
-```
+![Network Diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750949018/Capture_d_%C3%A9cran_du_2025-06-26_16-43-04_aikkda.png)
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -120,7 +121,7 @@ R3(config-router)# exit
 R3# copy running-config startup-config
 ```
 
-Scenario: A small enterprise configures OSPFv2 in Area 0 to connect three LANs via serial links, using loopback interfaces for stable router IDs.
+A small enterprise configures OSPFv2 in Area 0 to connect three LANs via serial links, using loopback interfaces for stable router IDs.
 
 ---
 
@@ -136,7 +137,7 @@ Verifying OSPFv2 ensures neighbors form adjacencies and routes are correctly adv
 - `show ip ospf`: Provides OSPF process details.
 
 Example output for `show ip ospf neighbor` on R1:
-```
+```bash
 Neighbor ID     Pri   State           Dead Time   Address         Interface
 2.2.2.2         1     FULL/BDR        00:00:38    10.10.10.6      Serial0/2/0
 3.3.3.3         1     FULL/DR         00:00:39    10.10.10.2      Serial0/2/1
@@ -159,7 +160,7 @@ Example troubleshooting scenario: R1 does not form an adjacency with R2. `show i
 | Router ID Conflict   | Adjacency failure             | Set unique `router-id`                |
 | Network Type Mismatch| Adjacency stuck in INIT       | Align with `ip ospf network <type>`   |
 
-Scenario: An admin finds missing OSPF routes on R3. `show ip ospf` reveals a duplicate router ID with R2. Setting `router-id 3.3.3.3` on R3 fixes the adjacency.
+An admin finds missing OSPF routes on R3. `show ip ospf` reveals a duplicate router ID with R2. Setting `router-id 3.3.3.3` on R3 fixes the adjacency.
 
 ---
 
@@ -173,9 +174,9 @@ Choosing a dynamic routing protocol depends on network requirements and operatio
 - **Summarization**: OSPF supports route summarization (e.g., 10.0.0.0/24 to 10.0.3.0/24 into 10.0.0.0/22) to reduce routing table size, improving efficiency.
 
 Example summarization:
-```
+```bash
 R1(config)# router ospf 10
 R1(config-router)# area 0 range 10.0.0.0 255.255.252.0
 ```
 
-Scenario: A company chooses OSPF over EIGRP for its multi-vendor environment, leveraging summarization to optimize routing tables and fast convergence for reliability.
+A company chooses OSPF over EIGRP for its multi-vendor environment, leveraging summarization to optimize routing tables and fast convergence for reliability.

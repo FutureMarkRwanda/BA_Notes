@@ -32,7 +32,7 @@ Key features:
 - Preemption allows a higher-priority router to reclaim the active role.
 - Authentication (e.g., MD5) secures HSRP communication.
 
-Scenario: A company uses HSRP to ensure PCs on a LAN (10.0.0.0/24) maintain connectivity to other networks via a virtual gateway, even if one router fails.
+A company uses HSRP to ensure PCs on a LAN (10.0.0.0/24) maintain connectivity to other networks via a virtual gateway, even if one router fails.
 
 ---
 
@@ -41,7 +41,8 @@ Scenario: A company uses HSRP to ensure PCs on a LAN (10.0.0.0/24) maintain conn
 Configuring HSRP involves assigning a virtual IP address to a group of routers, setting priorities, enabling preemption, and optionally adding authentication. The provided topology includes three routers (R1, R2, R3) with RIPv2 for routing, where R1 and R2 form an HSRP group for LAN 10.0.0.0/24, using virtual IP 10.0.0.254.
 
 **Configuration Example**:
-```
+![Diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750949431/Capture_d_%C3%A9cran_du_2025-06-26_16-50-11_vkaudo.png)
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -117,7 +118,7 @@ R3# copy running-config startup-config
 **PC Configuration**:
 - Configure PCs on the 10.0.0.0/24 LAN with default gateway 10.0.0.254 (virtual IP).
 
-Scenario: A small office configures HSRP on R1 and R2 for LAN 10.0.0.0/24, with R1 as the active router (higher priority) and R2 as standby, ensuring seamless gateway failover.
+A small office configures HSRP on R1 and R2 for LAN 10.0.0.0/24, with R1 as the active router (higher priority) and R2 as standby, ensuring seamless gateway failover.
 
 ---
 
@@ -130,7 +131,7 @@ Verifying HSRP confirms the active/standby roles and virtual IP functionality. T
 - `show standby brief`: Summarizes HSRP group status.
 
 Example output for `show standby brief` on R1:
-```
+```bash
 Interface   Grp  Pri P State   Active          Standby         Virtual IP
 Gi0/0       10   110 P Active  local           10.0.0.2        10.0.0.254
 ```
@@ -152,4 +153,4 @@ Example troubleshooting scenario: R1 is not active despite higher priority. `sho
 | Preemption Disabled  | Higher-priority router not active | Enable `standby <group> preempt`   |
 | Version Mismatch     | Incompatible HSRP messages    | Set same `standby version <1|2>`      |
 
-Scenario: An admin notices PCs lose connectivity when R1 fails. `show standby` on R2 reveals a mismatched authentication password. Correcting it with `standby 10 authentication md5 key-string mypassword` restores failover.
+An admin notices PCs lose connectivity when R1 fails. `show standby` on R2 reveals a mismatched authentication password. Correcting it with `standby 10 authentication md5 key-string mypassword` restores failover.

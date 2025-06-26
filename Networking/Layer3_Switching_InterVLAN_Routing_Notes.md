@@ -27,7 +27,7 @@ Layer 3 (multilayer) switches perform both switching and routing, enabling inter
 - Scalable for large networks with many VLANs.
 - Simplifies topology by eliminating external routers.
 
-Scenario: A corporate network uses a multilayer switch to route traffic between Admin (VLAN 10) and Finance (VLAN 20) departments, ensuring efficient communication without a dedicated router.
+A corporate network uses a multilayer switch to route traffic between Admin (VLAN 10) and Finance (VLAN 20) departments, ensuring efficient communication without a dedicated router.
 
 ---
 
@@ -36,7 +36,8 @@ Scenario: A corporate network uses a multilayer switch to route traffic between 
 Configuring inter-VLAN routing on a multilayer switch involves creating VLANs, assigning switch ports, enabling IP routing, configuring SVIs with IP addresses, and setting up a routed port for external connectivity (e.g., to a firewall). The example configures an L2 switch and an L3 switch for VLANs 10 and 20, with a routed port to a firewall.
 
 **Example Configuration** (VLAN 10: Admin-dept, VLAN 20: Finance-dept):
-```
+![Diagram](https://cdn.comparitech.com/wp-content/uploads/2020/10/Multilayer-switch-inter-VLAN-routing-.jpg.webp)
+```bash
 ! On L2 Switch
 L2-Switch> enable
 L2-Switch# configure terminal
@@ -109,7 +110,7 @@ SW2-L3# copy running-config startup-config
 - The routed port (fa0/0) connects to a firewall, with a default route for external traffic.
 - Pinging from Host A to Host B succeeds after configuration.
 
-Scenario: A university configures a multilayer switch to route traffic between Admin and Finance VLANs internally, with a routed port to a firewall for Internet access, simplifying the network topology.
+A university configures a multilayer switch to route traffic between Admin and Finance VLANs internally, with a routed port to a firewall for Internet access, simplifying the network topology.
 
 ---
 
@@ -127,7 +128,7 @@ Verifying Layer 3 switching inter-VLAN routing confirms VLAN assignments, SVI co
 - `ping <destination>` (Both): Tests connectivity.
 
 Example output for `show ip route` on SW2-L3:
-```
+```bash
       0.0.0.0/0 [120/1] via 192.0.0.2, 00:00:05, FastEthernet0/0
 C     192.0.0.0/30 is directly connected, FastEthernet0/0
 C     192.168.10.0/24 is directly connected, Vlan10
@@ -151,7 +152,7 @@ Example troubleshooting scenario: Host A cannot ping Host B. `show ip interface 
 | IP Routing Disabled  | No inter-VLAN routing         | Enable `ip routing`                  |
 | Trunk Misconfiguration | VLAN traffic not passing     | Set `switchport trunk allowed vlan`   |
 
-Scenario: An admin finds no external connectivity from VLAN 10. `show ip route` on SW2-L3 lacks a default route. Adding `ip route 0.0.0.0 0.0.0.0 192.0.0.2` resolves the issue.
+An admin finds no external connectivity from VLAN 10. `show ip route` on SW2-L3 lacks a default route. Adding `ip route 0.0.0.0 0.0.0.0 192.0.0.2` resolves the issue.
 
 ---
 
@@ -171,4 +172,4 @@ Layer 3 switching inter-VLAN routing offers advantages over traditional and rout
   - High scalability and performance due to internal routing.
   - Ideal for large networks but requires a multilayer switch.
 
-Scenario: A growing enterprise switches from router-on-a-stick to Layer 3 switching to handle increased VLAN traffic, leveraging a multilayer switch for faster, scalable routing.
+A growing enterprise switches from router-on-a-stick to Layer 3 switching to handle increased VLAN traffic, leveraging a multilayer switch for faster, scalable routing.

@@ -23,7 +23,7 @@ Inter-VLAN routing allows hosts in different VLANs (broadcast domains) to commun
 - Router-on-a-stick is more scalable but may introduce latency due to single-link bottlenecks.
 - 802.1Q encapsulation tags frames to identify VLANs on trunk links.
 
-Scenario: A company needs Admin (VLAN 10) and Finance (VLAN 20) departments to communicate. A router facilitates inter-VLAN routing, ensuring secure and efficient data exchange.
+A company needs Admin (VLAN 10) and Finance (VLAN 20) departments to communicate. A router facilitates inter-VLAN routing, ensuring secure and efficient data exchange.
 
 ---
 
@@ -32,7 +32,8 @@ Scenario: A company needs Admin (VLAN 10) and Finance (VLAN 20) departments to c
 Traditional inter-VLAN routing uses separate physical router interfaces, each connected to a switch access port assigned to a specific VLAN. Each interface’s IP address serves as the default gateway for its VLAN’s hosts.
 
 **Example Configuration** (VLAN 10: Admin-dept, VLAN 20: Finance-dept):
-```
+![Image](https://cdn.comparitech.com/wp-content/uploads/2020/10/Traditional-inter-VLAN-routing.jpg.webp)
+```bash
 ! On Switch
 Switch> enable
 Switch# configure terminal
@@ -88,7 +89,7 @@ R1# copy running-config startup-config
 - Switch ports fa0/1 (VLAN 10) and fa0/4 (VLAN 20) connect to the router’s fa0/0 and fa0/1, respectively.
 - Pinging from Host A to Host B succeeds after routing is configured.
 
-Scenario: A small office configures traditional inter-VLAN routing to connect Admin and Finance VLANs, using two router interfaces for direct connectivity.
+A small office configures traditional inter-VLAN routing to connect Admin and Finance VLANs, using two router interfaces for direct connectivity.
 
 ---
 
@@ -97,7 +98,8 @@ Scenario: A small office configures traditional inter-VLAN routing to connect Ad
 Router-on-a-stick uses a single router interface with sub-interfaces, each assigned to a VLAN with 802.1Q encapsulation. The switch port connected to the router is set as a trunk to carry multiple VLANs, making this method more scalable than traditional routing.
 
 **Example Configuration** (VLAN 10: Admin-dept, VLAN 20: Finance-dept):
-```
+![Diagram](https://cdn.comparitech.com/wp-content/uploads/2020/10/Router-on-a-stick-inter-VLAN-routing.jpg.webp)
+```bash
 ! On Switch
 Switch> enable
 Switch# configure terminal
@@ -152,7 +154,7 @@ R1# copy running-config startup-config
 - Router sub-interfaces fa0/1.10 and fa0/1.20 handle VLAN 10 and 20, respectively, with 802.1Q tagging.
 - Pinging from Host A to Host B succeeds after configuration.
 
-Scenario: A medium-sized enterprise uses router-on-a-stick to route traffic between Admin and Finance VLANs, leveraging a single router interface for cost efficiency.
+A medium-sized enterprise uses router-on-a-stick to route traffic between Admin and Finance VLANs, leveraging a single router interface for cost efficiency.
 
 ---
 
@@ -169,7 +171,7 @@ Verifying inter-VLAN routing confirms VLAN assignments, interface configurations
 - `ping <destination>` (Both): Tests connectivity between hosts.
 
 Example output for `show ip route` on R1 (Router-on-a-Stick):
-```
+```bash
 C    192.168.10.0/24 is directly connected, FastEthernet0/1.10
 C    192.168.20.0/24 is directly connected, FastEthernet0/1.20
 ```
@@ -191,4 +193,4 @@ Example troubleshooting scenario: Host A cannot ping Host B. `show interfaces sw
 | Sub-Interface Error  | VLAN routing fails            | Configure `encapsulation dot1Q <VLAN>`|
 | Interface Down       | No connectivity               | Enable with `no shutdown`            |
 
-Scenario: An admin finds no connectivity between VLANs 10 and 20. `show running-config` on R1 reveals fa0/1.20 lacks `encapsulation dot1Q 20`. Adding it restores inter-VLAN routing.
+An admin finds no connectivity between VLANs 10 and 20. `show running-config` on R1 reveals fa0/1.20 lacks `encapsulation dot1Q 20`. Adding it restores inter-VLAN routing.

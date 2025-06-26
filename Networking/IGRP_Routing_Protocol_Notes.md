@@ -37,7 +37,7 @@ Example scenario: A legacy network uses IGRP to route between two LANs, prioriti
 Configuring IGRP involves enabling the protocol, specifying an AS number, and advertising connected networks. Verification ensures routes are correctly learned and advertised.
 
 **Configuration Example** for two routers (R1 and R2) connecting LAN 1 (192.168.1.0/24), LAN 2 (192.168.2.0/24), and a link (10.10.0.0/30):
-```
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -84,7 +84,7 @@ Example output for `show ip route` on R1:
 I 192.168.2.0/24 [100/8576] via 10.10.0.2, 00:01:30, GigabitEthernet0/1
 ```
 
-Scenario: A small business with legacy Cisco routers configures IGRP with AS 100 to connect two office LANs, ensuring routes are dynamically shared based on bandwidth and delay metrics.
+A small business with legacy Cisco routers configures IGRP with AS 100 to connect two office LANs, ensuring routes are dynamically shared based on bandwidth and delay metrics._
 
 ---
 
@@ -109,4 +109,4 @@ Example troubleshooting scenario: R1 does not see 192.168.2.0/24 in its routing 
 | Interface Shutdown   | No updates sent               | Use `no shutdown` on interface        |
 | Passive Interface    | Updates suppressed            | Remove with `no passive-interface`    |
 
-Scenario: An admin notices R2’s routes are missing on R1. Using `show ip interface brief`, they find R2’s g0/1 interface is down. Issuing `no shutdown` restores route advertisements.
+An admin notices R2’s routes are missing on R1. Using `show ip interface brief`, they find R2’s g0/1 interface is down. Issuing `no shutdown` restores route advertisements.

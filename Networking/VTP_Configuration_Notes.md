@@ -32,7 +32,7 @@ VTP (VLAN Trunk Protocol) simplifies VLAN management in large networks by synchr
 - Reduces configuration errors and management overhead.
 - Supports dynamic VLAN reporting and tracking.
 
-Scenario: A university with 50 switches uses VTP to propagate VLAN 10 (Student), VLAN 20 (Teacher), and VLAN 30 (Staff) from a server switch, ensuring uniform VLAN configurations.
+A university with 50 switches uses VTP to propagate VLAN 10 (Student), VLAN 20 (Teacher), and VLAN 30 (Staff) from a server switch, ensuring uniform VLAN configurations.
 
 ---
 
@@ -41,7 +41,8 @@ Scenario: A university with 50 switches uses VTP to propagate VLAN 10 (Student),
 Configuring VTP involves setting the VTP mode, domain, and password on switches, creating VLANs on the server, and establishing trunk links. Pruning can be enabled to optimize traffic. The example configures three switches (S1 as server, S2 as client, S3 as transparent) with VLANs 10, 20, and 30.
 
 **Example Configuration**:
-```
+![Diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750950587/Capture_d_%C3%A9cran_du_2025-06-26_17-09-31_kzt5hb.png)
+```bash
 ! On S1 (VTP Server)
 S1> enable
 S1# configure terminal
@@ -106,7 +107,7 @@ S3# copy running-config startup-config
 - VTP pruning reduces unnecessary VLAN traffic on trunks.
 - The same domain name and password ensure VTP communication.
 
-Scenario: A corporate network configures S1 as a VTP server to manage VLANs for departments, with S2 as a client to receive updates and S3 as transparent for local VLAN control.
+A corporate network configures S1 as a VTP server to manage VLANs for departments, with S2 as a client to receive updates and S3 as transparent for local VLAN control.
 
 ---
 
@@ -121,7 +122,7 @@ Verifying VTP confirms domain settings, mode, VLAN propagation, and pruning stat
 - `show vlan brief`: Verifies VLANs on the switch.
 
 Example output for `show vtp status` on S1:
-```
+```bash
 VTP Version                     : 2
 Configuration Revision          : 3
 Maximum VLANs supported locally : 1005
@@ -151,7 +152,7 @@ Example troubleshooting scenario: S2 lacks VLAN 10. `show vtp status` shows a mi
 | Password Mismatch    | VTP updates ignored           | Align `vtp password <password>`       |
 | Revision Number Conflict | VLAN database overwritten  | Reset client mode and revision       |
 
-Scenario: An admin finds VLAN 20 missing on S2. `show vtp status` reveals a password mismatch. Setting `vtp password rca@123` on S2 restores VLAN propagation.
+An admin finds VLAN 20 missing on S2. `show vtp status` reveals a password mismatch. Setting `vtp password rca@123` on S2 restores VLAN propagation.
 
 ---
 
@@ -170,4 +171,6 @@ Scenario: An admin finds VLAN 20 missing on S2. `show vtp status` reveals a pass
 
 **VTP Traps**: Notify administrators of VLAN changes via SNMP, enabled with `vtp traps`.
 
-Scenario: A network upgrades to VTP v3 to support extended VLANs and improved security, ensuring compatibility with modern Cisco switches.
+A network upgrades to VTP v3 to support extended VLANs and improved security, ensuring compatibility with modern Cisco switches.
+
+https://ipwithease.com/vtp-30-interview-questions/

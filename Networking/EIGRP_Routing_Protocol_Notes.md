@@ -33,16 +33,17 @@ Key features:
 - Administrative distance: 90 (internal), 170 (external).
 - Uses multicast (224.0.0.10) for efficient updates.
 
-Scenario: A company uses EIGRP to route between three office LANs, leveraging DUAL to ensure loop-free paths and fast failover to backup routes when a link fails.
+A company uses EIGRP to route between three office LANs, leveraging DUAL to ensure loop-free paths and fast failover to backup routes when a link fails.
 
 ---
 
 ## EIGRP Configuration for IPv4
 
 Configuring EIGRP for IPv4 involves enabling the protocol with an Autonomous System (AS) number, advertising networks, and optionally setting interfaces as passive to suppress unnecessary updates. All routers in the same EIGRP domain must use the same AS number. The `passive-interface` command prevents EIGRP from sending Hellos on specified interfaces, blocking adjacency formation while still advertising the network.
+![Example of network diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750948367/EIGRP_mqyugc.png)
 
 Example configuration for three routers (R1, R2, R3) connecting LAN1 (192.168.0.0/24), LAN2 (192.168.1.0/24), LAN3 (192.168.7.0/24), LINK1 (10.10.10.0/30), and LINK2 (172.31.10.0/30):
-```
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -106,7 +107,7 @@ R3(config-router)# exit
 R3# copy running-config startup-config
 ```
 
-Scenario: A campus network configures EIGRP with AS 1 to connect three LANs, using passive interfaces on LAN-facing ports to reduce unnecessary Hello packets.
+A campus network configures EIGRP with AS 1 to connect three LANs, using passive interfaces on LAN-facing ports to reduce unnecessary Hello packets.
 
 ---
 
@@ -115,7 +116,7 @@ Scenario: A campus network configures EIGRP with AS 1 to connect three LANs, usi
 EIGRP for IPv6 (EIGRPv6) operates similarly to IPv4 but requires IPv6 unicast routing and interface-level EIGRP configuration. It uses the same AS number across routers and assigns a router ID manually (since IPv6 lacks a default 32-bit ID). Unlike IPv4, EIGRPv6 is enabled directly on interfaces rather than via network statements.
 
 Example configuration for three routers (R1, R2, R3) with IPv6 networks 2001::/64, 2002::/64, 2003::/64, and 2004::/64:
-```
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -196,7 +197,7 @@ R3(config-if)# exit
 R3# copy running-config startup-config
 ```
 
-Scenario: A modern enterprise configures EIGRPv6 with AS 10 to support IPv6 routing across four subnets, ensuring efficient route updates and neighbor discovery.
+A modern enterprise configures EIGRPv6 with AS 10 to support IPv6 routing across four subnets, ensuring efficient route updates and neighbor discovery.
 
 ---
 
@@ -212,7 +213,7 @@ Verifying EIGRP ensures neighbors are formed, and routes are correctly advertise
 - `show ip eigrp topology`: Shows topology table with successors and feasible successors.
 
 Example output for `show ip eigrp neighbors` on R1:
-```
+```bash
 IP-EIGRP neighbors for process 1
 H   Address         Interface       Hold Uptime   SRTT   RTO  Q  Seq
 0   10.10.10.2      Gi0/1           14   00:05:23  40    240  0  10
@@ -235,4 +236,4 @@ Example troubleshooting scenario: R1 does not see routes to 192.168.7.0/24. `sho
 | Interface Shutdown   | No Hellos sent                | Use `no shutdown` on interface        |
 | Missing IPv6 Routing | No IPv6 adjacencies           | Enable `ipv6 unicast-routing`         |
 
-Scenario: An admin finds no EIGRPv6 neighbors on R2. `show ipv6 protocols` shows `ipv6 unicast-routing` is disabled. Enabling it with `ipv6 unicast-routing` establishes adjacencies.
+An admin finds no EIGRPv6 neighbors on R2. `show ipv6 protocols` shows `ipv6 unicast-routing` is disabled. Enabling it with `ipv6 unicast-routing` establishes adjacencies.

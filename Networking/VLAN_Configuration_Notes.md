@@ -22,7 +22,7 @@ Benefits include scalability, redundancy, performance, security, manageability, 
 
 Switching involves forwarding frames based on the ingress port and destination MAC address. Switches maintain a **MAC address table** to map MAC addresses to ports, reducing flooding (broadcasting to all ports). Use `show mac-address-table` to view the table. A **collision domain** is a network segment where devices can collide when transmitting; switches reduce collisions by creating separate collision domains per port. Full-duplex communication and higher-bandwidth devices further minimize collisions.
 
-Scenario: A university uses a hierarchical network with access switches for student devices, distribution switches for policy enforcement, and core switches for fast inter-building connectivity.
+A university uses a hierarchical network with access switches for student devices, distribution switches for policy enforcement, and core switches for fast inter-building connectivity.
 
 ---
 
@@ -50,7 +50,7 @@ A VLAN (Virtual Local Area Network) logically segments devices into separate bro
 - 1002–1005: Legacy FDDI/Token Ring, non-deletable.
 - 1006–4094: Extended range, Ethernet only, not propagated by VTP.
 
-Scenario: A company uses VLAN 10 for employee data, VLAN 20 for VoIP, and VLAN 99 for management to isolate and prioritize traffic.
+A company uses VLAN 10 for employee data, VLAN 20 for VoIP, and VLAN 99 for management to isolate and prioritize traffic.
 
 ---
 
@@ -59,7 +59,8 @@ Scenario: A company uses VLAN 10 for employee data, VLAN 20 for VoIP, and VLAN 9
 Configuring VLANs involves creating VLANs, naming them, assigning switch ports to VLANs, and setting up trunk ports for inter-switch connectivity. Access ports connect to end devices, carrying traffic for a single VLAN, while trunk ports carry multiple VLANs using 802.1Q tagging. Sub-interfaces on routers enable inter-VLAN routing.
 
 **Example Configuration** for a switch and router, with VLAN 10 (Student) and VLAN 20 (Teacher):
-```
+![Diagram](https://res.cloudinary.com/ddsojj7zo/image/upload/v1750949794/Capture_d_%C3%A9cran_du_2025-06-26_16-56-14_lyn6rg.png)
+```bash
 ! On Switch
 Switch> enable
 Switch# configure terminal
@@ -108,7 +109,7 @@ Router# copy running-config startup-config
 - PC1 (VLAN 10): IP 192.168.10.10/24, Gateway 192.168.10.1
 - PC2 (VLAN 20): IP 192.168.20.10/24, Gateway 192.168.20.1
 
-Scenario: A school configures VLAN 10 for student devices and VLAN 20 for teacher devices, with a trunk to a router for inter-VLAN routing, ensuring isolated broadcast domains.
+A school configures VLAN 10 for student devices and VLAN 20 for teacher devices, with a trunk to a router for inter-VLAN routing, ensuring isolated broadcast domains.
 
 ---
 
@@ -123,7 +124,7 @@ Verifying VLAN configurations confirms VLAN creation, port assignments, and trun
 - `show interfaces trunk`: Confirms trunk status and allowed VLANs.
 
 Example output for `show vlan brief` on SW1:
-```
+```bash
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
 1    default                          active    Fa0/7, Fa0/8, ...
@@ -148,4 +149,4 @@ Example troubleshooting scenario: PCs in VLAN 10 cannot reach VLAN 20. `show run
 | Trunk Misconfiguration | VLAN traffic not passing      | Configure `switchport mode trunk`     |
 | Native VLAN Mismatch | Trunk errors                  | Align `switchport trunk native vlan`  |
 
-Scenario: An admin finds student PCs (VLAN 10) have no connectivity. `show interfaces switchport` reveals fa0/1 is in VLAN 1. Reassigning with `switchport access vlan 10` restores connectivity.
+An admin finds student PCs (VLAN 10) have no connectivity. `show interfaces switchport` reveals fa0/1 is in VLAN 1. Reassigning with `switchport access vlan 10` restores connectivity.

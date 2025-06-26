@@ -33,7 +33,7 @@ ACLs are sets of rules that permit or deny traffic based on criteria like source
 - No simultaneous MAC and IP ACLs on the same interface.
 - Limited logging due to hardware constraints.
 
-Scenario: A company uses ACLs to restrict access to a server, allowing only specific hosts to access HTTP services while denying unauthorized traffic, enhancing security.
+A company uses ACLs to restrict access to a server, allowing only specific hosts to access HTTP services while denying unauthorized traffic, enhancing security.
 
 ---
 
@@ -44,7 +44,7 @@ Configuring ACLs involves creating rules to match traffic and applying them to i
 **Example Configurations**:
 
 1. **Standard ACL**: Allow traffic from 192.168.10.0/24, deny all others.
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# access-list 1 permit 192.168.10.0 0.0.0.255
@@ -55,7 +55,7 @@ R1# copy running-config startup-config
 ```
 
 2. **Standard ACL**: Deny PC 192.168.10.10, permit PC 192.168.10.5 to access server 192.168.20.50.
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# access-list 10 deny host 192.168.10.10
@@ -67,7 +67,7 @@ R1# copy running-config startup-config
 ```
 
 3. **Extended ACL**: Deny FTP traffic from 192.168.10.0/24 to server 192.168.20.50, permit HTTP traffic.
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# access-list 100 deny tcp 192.168.10.0 0.0.0.255 host 192.168.20.50 eq ftp
@@ -80,7 +80,7 @@ R1# copy running-config startup-config
 ```
 
 4. **Extended ACL with Static Routing**: Permit 192.168.2.0/24 to access HTTP/HTTPS on 192.168.1.100 and all services on 192.168.4.0/24.
-```
+```bash
 ! Router R1 Interfaces and Static Route
 R1> enable
 R1# configure terminal
@@ -124,7 +124,7 @@ R2# copy running-config startup-config
 ```
 
 5. **Extended ACL with Established TCP**: Permit 192.168.3.0/24 to access HTTP/HTTPS/SMTP on 192.168.2.0/24, and 192.168.1.0/24 to access HTTP/HTTPS on 192.168.3.0/24.
-```
+```bash
 ! Router R1 Interfaces, Static Routes, and ACL
 R1> enable
 R1# configure terminal
@@ -171,7 +171,7 @@ R2# copy running-config startup-config
 ```
 
 6. **Named Extended ACL**: Permit FTP traffic from 192.168.10.0/24, deny all other traffic.
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# ip access-list extended FTP-FILTER
@@ -191,7 +191,7 @@ R1# copy running-config startup-config
 - The `established` keyword allows return traffic for TCP sessions initiated internally.
 - Named ACLs use descriptive names (e.g., FTP-FILTER) and support rule insertion/deletion.
 
-Scenario: A university network uses an extended ACL to allow HTTP/HTTPS access to a server while denying FTP, and a named ACL to manage FTP traffic, ensuring precise access control.
+A university network uses an extended ACL to allow HTTP/HTTPS access to a server while denying FTP, and a named ACL to manage FTP traffic, ensuring precise access control.
 
 ---
 
@@ -208,7 +208,7 @@ Verifying ACLs confirms rule application and traffic filtering. Troubleshooting 
 - `traceroute <destination>`: Identifies where traffic is blocked.
 
 Example output for `show access-lists` on R2:
-```
+```bash
 Extended IP access list 100
     10 permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq www (match=50)
     20 permit tcp 192.168.2.0 0.0.0.255 host 192.168.1.100 eq 443 (match=10)
@@ -232,7 +232,7 @@ Example troubleshooting scenario: Hosts in 192.168.2.0/24 cannot access HTTP on 
 | Incorrect Protocol   | Traffic not allowed           | Correct protocol/port (e.g., UDP for TFTP) |
 | Wrong Interface      | ACL not filtering             | Reapply to correct interface/direction |
 
-Scenario: An admin finds 192.168.3.0/24 cannot access SMTP on 192.168.2.0/24. `show access-lists` reveals `eq 25` is missing. Adding `permit tcp any 192.168.2.0 0.0.0.255 eq 25` fixes the issue.
+An admin finds 192.168.3.0/24 cannot access SMTP on 192.168.2.0/24. `show access-lists` reveals `eq 25` is missing. Adding `permit tcp any 192.168.2.0 0.0.0.255 eq 25` fixes the issue.
 
 ---
 
@@ -246,4 +246,4 @@ Scenario: An admin finds 192.168.3.0/24 cannot access SMTP on 192.168.2.0/24. `s
 - **Testing**: Test ACLs with `ping` or `traceroute` before deployment to verify behavior.
 - **Documentation**: Comment ACLs with `remark` (e.g., `access-list 100 remark Allow HTTP`) for clarity.
 
-Scenario: A network admin uses named ACLs with remarks and logging to filter traffic, regularly auditing with `show access-lists` to maintain security and performance.
+A network admin uses named ACLs with remarks and logging to filter traffic, regularly auditing with `show access-lists` to maintain security and performance.

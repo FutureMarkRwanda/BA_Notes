@@ -35,7 +35,7 @@ Wireless Local Area Networks (WLANs) use IEEE 802.11 standards to enable wireles
 **Benefits of Wireless**:
 - Mobility, flexibility, cost-effectiveness, improved collaboration, efficiency, and user experience.
 
-Scenario: A coffee shop deploys 802.11ac Wi-Fi for customers, using 5 GHz to avoid 2.4 GHz interference from nearby Bluetooth devices, ensuring fast and reliable internet access.
+A coffee shop deploys 802.11ac Wi-Fi for customers, using 5 GHz to avoid 2.4 GHz interference from nearby Bluetooth devices, ensuring fast and reliable internet access.
 
 ---
 
@@ -62,7 +62,7 @@ Wireless networks rely on infrastructure components like access points (APs), ro
 - **Mesh**: Devices act as routers, creating resilient networks.
 
 **Example Configuration** (SOHO Wireless Router with WPA3 Security):
-```
+```bash
 ! Access Cisco Wireless Router (e.g., via web interface at 192.168.1.1)
 ! Step 1: Basic Setup
 - Login: Username: admin, Password: Admin@123
@@ -91,7 +91,7 @@ Router# show ip interface brief
 - Select 5 GHz for speed or 2.4 GHz for range, depending on needs.
 - Channels 1, 6, or 11 (2.4 GHz) or 36+ (5 GHz) minimize interference.
 
-Scenario: A small office configures a wireless router with WPA3 and 5 GHz for employee laptops, ensuring secure and fast connectivity across a 50-foot radius.
+A small office configures a wireless router with WPA3 and 5 GHz for employee laptops, ensuring secure and fast connectivity across a 50-foot radius.
 
 ---
 
@@ -119,7 +119,7 @@ WLANs are vulnerable to attacks like eavesdropping, hijacking, and DoS. Implemen
 - Disable WPS (Wi-Fi Protected Setup) to prevent brute-force attacks.
 
 **Example Configuration** (AP with WPA3 and MAC Filtering):
-```
+```bash
 ! Cisco AP Configuration (via CLI or web interface)
 AP> enable
 AP# configure terminal
@@ -139,7 +139,7 @@ AP(config)# mac-address-table static 00:1A:2B:3C:4D:5E vlan 10 interface dot11ra
 AP# copy running-config startup-config
 ```
 
-Scenario: A corporate office deploys an AP with WPA3, hidden SSID, and MAC filtering to secure employee Wi-Fi, preventing unauthorized access and eavesdropping.
+A corporate office deploys an AP with WPA3, hidden SSID, and MAC filtering to secure employee Wi-Fi, preventing unauthorized access and eavesdropping.
 
 ---
 
@@ -163,7 +163,7 @@ Testing ensures WLAN performance, coverage, and security. Troubleshooting resolv
 - Check client status (`show station` on AP).
 
 **Example Verification**:
-```
+```bash
 AP# show dot11 associations
 802.11 Client Stations on Dot11Radio0:
 SSID [SOHO-WiFi] :
@@ -182,7 +182,7 @@ AP# ping 192.168.1.100
 | Incorrect IP Config  | No internet access            | Check DHCP or static IP settings      |
 | Hidden SSID          | Network not visible           | Manually enter SSID on client         |
 
-Scenario: An admin finds weak Wi-Fi in a meeting room. A site survey reveals 2.4 GHz interference. Switching to 5 GHz channel 36 improves performance.
+An admin finds weak Wi-Fi in a meeting room. A site survey reveals 2.4 GHz interference. Switching to 5 GHz channel 36 improves performance.
 
 ---
 
@@ -209,4 +209,4 @@ A **Network Operating System (NOS)** manages network resources and enables commu
 - Security features and support availability.
 - Licensing costs and admin expertise required.
 
-Scenario: A small business deploys Ubuntu Server as a NOS to manage file sharing and DHCP for its wireless network, leveraging its cost-effectiveness and flexibility.
+A small business deploys Ubuntu Server as a NOS to manage file sharing and DHCP for its wireless network, leveraging its cost-effectiveness and flexibility.

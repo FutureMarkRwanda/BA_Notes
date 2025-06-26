@@ -27,7 +27,7 @@ Securing router access prevents unauthorized management and ensures only trusted
 - **Local User Database**: Uses usernames/passwords for authentication.
 
 **Example Configuration**:
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# hostname R1
@@ -67,7 +67,7 @@ R1# copy running-config startup-config
 - SSH requires a hostname, domain name, RSA keys, and `login local` for username-based authentication.
 - `exec-timeout 5 0` sets a 5-minute idle timeout; `0 0` disables it.
 
-Scenario: A corporate network secures a router with SSH access, encrypted passwords, and a MOTD banner to deter unauthorized access while allowing admin management.
+A corporate network secures a router with SSH access, encrypted passwords, and a MOTD banner to deter unauthorized access while allowing admin management.
 
 ---
 
@@ -81,7 +81,7 @@ Preventing and detecting login attacks enhances router security. Measures includ
 - **Access Restrictions**: Limits protocols (e.g., SSH only) or source IPs (via ACLs).
 
 **Example Configuration**:
-```
+```bash
 R1> enable
 R1# configure terminal
 R1(config)# login block-for 180 attempts 5 within 120
@@ -102,7 +102,7 @@ R1# copy running-config startup-config
 - `login on-failure log every 2`: Logs every second failed attempt.
 - ACL `SSH-ACCESS` restricts SSH to specific IPs, enhancing security.
 
-Scenario: A university router logs login attempts and blocks access after 5 failed tries in 2 minutes, notifying admins of potential brute-force attacks via logs.
+A university router logs login attempts and blocks access after 5 failed tries in 2 minutes, notifying admins of potential brute-force attacks via logs.
 
 ---
 
@@ -128,7 +128,7 @@ Understanding key ports and protocols is essential for configuring secure router
 
 **Use Case**: When configuring ACLs, specify ports (e.g., `eq 80` for HTTP) to allow/deny specific services while securing the router.
 
-Scenario: An admin configures an ACL to permit HTTPS (port 443) traffic to a server while denying Telnet (port 23) to the router, ensuring secure access.
+An admin configures an ACL to permit HTTPS (port 443) traffic to a server while denying Telnet (port 23) to the router, ensuring secure access.
 
 ---
 
@@ -146,7 +146,7 @@ Verifying router security confirms configurations for access, encryption, and lo
 - `show logging`: Displays login success/failure logs.
 
 Example output for `show ip ssh` on R1:
-```
+```bash
 SSH Enabled - version 2.0
 Authentication timeout: 120 secs; Authentication retries: 3
 Minimum expected Diffie Hellman key size : 1024 bits
@@ -169,4 +169,4 @@ Example troubleshooting scenario: SSH access to R1 fails. `show ip ssh` shows no
 | Login Block Triggered| User blocked after attempts   | Clear with `clear login blocked`      |
 | Weak Encryption      | Type 7 passwords in config    | Use `secret` for MD5 encryption       |
 
-Scenario: An admin cannot access R1 via SSH. `show running-config | section vty` shows `transport input telnet`. Setting `transport input ssh` and `login local` enables secure SSH access.
+An admin cannot access R1 via SSH. `show running-config | section vty` shows `transport input telnet`. Setting `transport input ssh` and `login local` enables secure SSH access.
