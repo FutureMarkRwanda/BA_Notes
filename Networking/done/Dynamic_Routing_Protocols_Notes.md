@@ -34,7 +34,7 @@ The following table summarizes key routing protocols:
 | BGP      | No              | No         | Yes         | EGP     | Classless |
 | IGRP     | Yes             | No         | No          | IGP     | Classful |
 
-Scenario: A company uses OSPF within its internal network (IGP) for efficient routing and BGP to connect to its ISP (EGP) for external routing.
+A company uses OSPF within its internal network (IGP) for efficient routing and BGP to connect to its ISP (EGP) for external routing.
 
 ---
 
@@ -125,4 +125,4 @@ Router# show ip bgp
 Router# show ip bgp neighbors
 ```
 
-Scenario: A network admin configures OSPF for internal routing across 192.168.1.0/24 and 192.168.2.0/24 networks in area 0, and BGP to advertise 10.0.0.0/24 to an ISP router in AS 65002.
+A network admin configures OSPF for internal routing across 192.168.1.0/24 and 192.168.2.0/24 networks in area 0, and BGP to advertise 10.0.0.0/24 to an ISP router in AS 65002.

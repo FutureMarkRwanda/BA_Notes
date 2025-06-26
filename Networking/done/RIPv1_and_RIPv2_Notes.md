@@ -22,7 +22,7 @@ Key characteristics:
 - No authentication support.
 
 Example configuration for a network with two routers (Router0 and Router1) connecting LAN 1 (192.168.1.0/24), LAN 2 (192.168.2.0/24), and a link (10.10.0.0/30):
-```
+```bash
 ! On Router0
 Router> enable
 Router# configure terminal
@@ -60,7 +60,7 @@ Router1(config-router)# exit
 Router1# copy running-config startup-config
 ```
 
-Scenario: A small office uses RIPv1 to connect two LANs (192.168.1.0/24 and 192.168.2.0/24) via a point-to-point link (10.10.0.0/30), ensuring routers exchange routing information.
+A small office uses RIPv1 to connect two LANs (192.168.1.0/24 and 192.168.2.0/24) via a point-to-point link (10.10.0.0/30), ensuring routers exchange routing information.
 
 ---
 
@@ -76,7 +76,7 @@ Key characteristics:
 - Supports authentication for secure updates.
 
 Example configuration for a network with two routers (R1 and R2) connecting 10.0.0.0/24, 172.16.0.0/16, and 192.168.0.0/24:
-```
+```bash
 ! On R1
 R1> enable
 R1# configure terminal
@@ -100,7 +100,7 @@ R2(config-router)# exit
 R2# copy running-config startup-config
 ```
 
-Scenario: A campus network uses RIPv2 to support VLSM, allowing efficient IP allocation across subnets like 10.0.0.0/24 and 192.168.0.0/24, with multicast updates reducing network congestion.
+A campus network uses RIPv2 to support VLSM, allowing efficient IP allocation across subnets like 10.0.0.0/24 and 192.168.0.0/24, with multicast updates reducing network congestion.
 
 ---
 
@@ -114,7 +114,7 @@ Verifying RIP configurations ensures routes are correctly advertised and learned
 - `show ip rip database`: Displays RIP’s internal database of routes.
 
 Example output for `show ip route` on Router0:
-```
+```bash
 R 192.168.2.0/24 [120/1] via 10.10.0.1, 00:00:15, GigabitEthernet0/1
 ```
 
@@ -140,4 +140,4 @@ Example troubleshooting scenario: If Router0 does not see 192.168.2.0/24 in its 
 | Version Mismatch     | Incompatible updates          | Set `version 2` on both routers       |
 | Auto-Summarization   | Discontiguous network issues  | Use `no auto-summary` in RIPv2        |
 
-Scenario: A network admin notices Router0 lacks routes to 192.168.2.0/24. After verifying with `show ip protocols`, they find Router1 is using RIPv2 while Router0 uses RIPv1. Setting `version 2` on Router0 resolves the issue.
+A network admin notices Router0 lacks routes to 192.168.2.0/24. After verifying with `show ip protocols`, they find Router1 is using RIPv2 while Router0 uses RIPv1. Setting `version 2` on Router0 resolves the issue.

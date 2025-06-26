@@ -21,6 +21,8 @@ Since these devices have no screens or keyboards, console access provides the on
 
 Once the device is configured and connected to a network, remote access methods like **SSH** or **Telnet** can be used instead.
 
+![Console Port to pc](https://info.support.huawei.com/hedex/api/pages/EDOC1100149308/AEJ0713J/18/resources/hardware_box/images/inst_0092_ugw_middle_fig01.png)
+![Console Port](https://docs.netgate.com/pfsense/en/latest/solutions/_images/netgate-8300-console-cable-closeup.jpg)
 ---
 
 ## Console Cables and Adapters
@@ -32,13 +34,13 @@ To connect a PC to the console port, special cables are needed:
   * One end is typically a **DB9 serial connector** (for PCs).
   * The other end is an **RJ45 connector** (for network devices).
 
-  ![Rollover Cable and Adapter](https://user-images.githubusercontent.com/console-ports-db9-rj45.jpg)
+  ![Rollover Cable and Adapter](https://m.media-amazon.com/images/I/714nvJHIV4L.jpg)
 
 * **USB-to-Serial Adapter**: Since modern laptops no longer include serial ports, a **USB-to-Serial (RS232) adapter** is used.
 
   * This adapter connects a USB port on the laptop to the DB9 connector of the rollover cable.
 
-  ![USB to Serial Adapter](https://user-images.githubusercontent.com/usb-serial-converter.jpg)
+  ![USB to Serial Adapter](https://sabrent.com/cdn/shop/products/CB-DB9P-Main-Pic.jpg?v=1639016099)
 
 ---
 
@@ -78,12 +80,12 @@ Linux systems offer multiple tools to access routers via the console without nee
 
 1. Install the screen utility:
 
-   ```
+   ```bash
    sudo apt install screen -y
    ```
 2. Start the session:
 
-   ```
+   ```bash
    sudo screen /dev/ttyUSB0
    ```
 
@@ -93,17 +95,17 @@ Linux systems offer multiple tools to access routers via the console without nee
 
 1. Install minicom:
 
-   ```
+   ```bash
    sudo apt install minicom
    ```
 2. Identify the port:
 
-   ```
+   ```bash
    dmesg | grep tty
    ```
 3. Set up minicom:
 
-   ```
+   ```bash
    sudo minicom -s
    ```
 
@@ -111,13 +113,13 @@ Linux systems offer multiple tools to access routers via the console without nee
    * Save the setup as default ("Save setup as dfl").
 4. Start minicom:
 
-   ```
+   ```bash
    sudo minicom
    ```
 
    If you get a lock error:
 
-   ```
+   ```bash
    sudo killall -9 minicom
    sudo minicom
    ```
@@ -126,13 +128,13 @@ Linux systems offer multiple tools to access routers via the console without nee
 
 If you still prefer PuTTY:
 
-```
+```bash
 sudo apt install putty
 ```
 
 Then run:
 
-```
+```bash
 putty
 ```
 

@@ -29,7 +29,7 @@ A **default route** (0.0.0.0/0) directs packets with no specific match to a defa
 | 192.12.17.5      | 255.255.255.255   | Eth3               | Host route (specific device)     |
 | 0.0.0.0          | 0.0.0.0           | Eth2               | Default route to gateway         |
 
-Scenario: A router receives a packet for 128.75.43.10. It matches the 128.75.43.0/24 entry and forwards the packet via Eth0.
+A router receives a packet for 128.75.43.10. It matches the 128.75.43.0/24 entry and forwards the packet via Eth0.
 
 ---
 
@@ -45,15 +45,15 @@ For example, a static route might direct traffic to a remote network, while a dy
 
 Example commands:
 - On Windows, view the routing table:
-```
+```bash
 route print
 ```
 - On Linux:
-```
+```bash
 route
 ```
 - On a Cisco router, add a static route:
-```
+```bash
 Router(config)# ip route 192.168.2.0 255.255.255.0 192.168.1.2
 ```
 This directs traffic for 192.168.2.0/24 to the next hop 192.168.1.2.
@@ -63,4 +63,4 @@ This directs traffic for 192.168.2.0/24 to the next hop 192.168.1.2.
 | Static Routing | Manual entry  | Small, stable networks           |
 | Dynamic Routing| Protocols     | Large, changing networks         |
 
-Scenario: A small business uses a static route to connect to a partner network (192.168.2.0/24) via a router at 192.168.1.2. If the partner’s router IP changes, the route must be manually updated.
+A small business uses a static route to connect to a partner network (192.168.2.0/24) via a router at 192.168.1.2. If the partner’s router IP changes, the route must be manually updated.

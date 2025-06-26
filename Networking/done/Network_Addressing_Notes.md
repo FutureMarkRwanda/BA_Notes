@@ -150,7 +150,7 @@ Network addressing provides critical benefits for communication, scalability, an
 | DHCP Failure         | APIPA address (169.254.x.x)   | Check/expand DHCP pool               |
 
 **Verification Example**:
-```
+```bash
 R1# show ip interface brief
 Interface    IP-Address      OK?  Method  Status  Protocol
 GigabitEthernet0/0  192.168.1.1  YES  manual  up      up

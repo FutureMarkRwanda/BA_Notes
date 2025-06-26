@@ -29,7 +29,7 @@ Limitations include inefficient address allocation and risk of address exhaustio
 | B     | 128–191       | 255.255.0.0 (/16)  | 16,384       | Medium networks     |
 | C     | 192–223       | 255.255.255.0 (/24)| 2,097,157    | Small networks      |
 
-Scenario: A company uses 192.168.1.0/24 (Class C) for its internal network, reserving 10.0.0.0/8 for future expansion.
+A company uses 192.168.1.0/24 (Class C) for its internal network, reserving 10.0.0.0/8 for future expansion.
 
 ---
 
@@ -60,7 +60,7 @@ Router# show ipv6 interface brief
 Router# ping 2003:DB0:AAAA:B::2
 ```
 
-Scenario: A network admin configures IPv6 on a router to enable communication between PCs in subnets 2003:DB0:AAAA:A::/64 and 2003:DB0:AAAA:B::/64.
+A network admin configures IPv6 on a router to enable communication between PCs in subnets 2003:DB0:AAAA:A::/64 and 2003:DB0:AAAA:B::/64.
 
 ---
 
@@ -94,7 +94,7 @@ VLSM example: Allocate IPs for departments from 192.168.1.0/24:
 | Accounts   | 192.168.1.192/27| 192.168.1.193–192.168.1.222 | 255.255.255.224 |
 | Management | 192.168.1.224/29| 192.168.1.225–192.168.1.230 | 255.255.255.248 |
 
-Scenario: A company uses VLSM to allocate IPs from 192.168.1.0/24, assigning larger subnets to departments with more devices to minimize IP waste.
+A company uses VLSM to allocate IPs from 192.168.1.0/24, assigning larger subnets to departments with more devices to minimize IP waste.
 
 ---
 
@@ -118,4 +118,4 @@ Configuration on R3:
 R3(config)# ip route 192.168.0.0 255.255.252.0 192.168.20.2
 ```
 
-Scenario: An ISP summarizes customer networks (192.168.0.0/24 to 192.168.3.0/24) into 192.168.0.0/22 to reduce routing table size on its core router.
+An ISP summarizes customer networks (192.168.0.0/24 to 192.168.3.0/24) into 192.168.0.0/22 to reduce routing table size on its core router.

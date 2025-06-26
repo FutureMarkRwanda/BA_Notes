@@ -53,6 +53,8 @@ Each dynamic routing protocol has its own way of calculating metrics:
 | OSPF                 | Cost (based on bandwidth)                       |
 | EIGRP                | Composite (Bandwidth, Delay, Reliability, Load) |
 
+https://www.youtube.com/watch?v=ZMSYx7HRlXs&ab_channel=NetworkingwithRich
+
 ### EIGRP Metric Example
 
 To compute an EIGRP metric:
@@ -112,7 +114,7 @@ The router **installs the static route** into the routing table because it has a
 
 ---
 
-## Final Notes
+## Notes
 
 * **Routing decisions** depend on destination IP lookup in the routing table.
 * The **best path** is the one with the **lowest metric** based on the routing protocol.

@@ -21,7 +21,7 @@ The setup process prompts for:
 - **Interface Settings**: Configures an interface (e.g., FastEthernet) with an IP address and subnet mask.
 
 Example configuration using the setup facility:
-```
+```bash
 --- System Configuration Dialog ---
 Would you like to enter the initial configuration dialog? [yes/no]: yes
 Would you like to enter basic management setup? [yes/no]: yes
@@ -49,7 +49,7 @@ Verification commands:
 - `show configuration`: Verifies hostname and passwords.
 - `show version`: Shows router details (e.g., IOS version, uptime).
 
-Scenario: A network admin configures a new router for a branch office, setting the hostname to "Branch1" and assigning 172.1.2.3/16 to FastEthernet0 for management.
+A network admin configures a new router for a branch office, setting the hostname to "Branch1" and assigning 172.1.2.3/16 to FastEthernet0 for management.
 
 ---
 
@@ -65,7 +65,7 @@ Static routes are manually configured paths for packets to reach specific networ
 
 ![Static  Route](https://media.geeksforgeeks.org/wp-content/uploads/20220617220604/rou1.jpg)
 Example: Configure static routes on two routers (R5 and R6) to connect networks 192.168.1.0/24 and 192.168.2.0/24 via 192.168.3.0/24:
-```
+```bash
 ! On R5
 Router> enable
 Router# configure terminal
@@ -100,7 +100,7 @@ R6# copy running-config startup-config
 ```
 
 Default route example on R3 and R4:
-```
+```bash
 ! On R3
 R3(config)# interface s0/2/0
 R3(config-if)# ip address 192.168.20.1 255.255.255.0
@@ -130,16 +130,16 @@ R4# copy running-config startup-config
 ```
 
 Static host route example:
-```
+```bash
 R1(config)# ip route 203.0.113.100 255.255.255.255 10.0.0.2
 ```
 
 Floating static route example:
-```
+```bash
 ! On R1
 R1(config)# ip route 203.0.113.0 255.255.255.0 10.0.0.2 125
 R1(config)# ip route 203.0.113.0 255.255.255.0 10.0.0.6 1
 ```
 In this example, the route via 10.0.0.6 (AD 1) is preferred. If it fails, the route via 10.0.0.2 (AD 125) is installed.
 
-Scenario: A company configures a floating static route on R1 to reach 203.0.113.0/24 via a backup link (10.0.0.2) with AD 125, ensuring connectivity if the primary link (10.0.0.6, AD 1) fails.
+A company configures a floating static route on R1 to reach 203.0.113.0/24 via a backup link (10.0.0.2) with AD 125, ensuring connectivity if the primary link (10.0.0.6, AD 1) fails.

@@ -21,6 +21,9 @@ The default gateway is typically a **router** that has interfaces in multiple IP
 
 When two computers are on the **same IP network**, they can communicate directly without needing the default gateway. But for communication **across different IP networks**, a router (default gateway) is required.
 
+![Default Gateway Image 1](https://i.sstatic.net/LzXCv.png)
+![Default Gateway Image 2](https://learn.pivitglobal.com/hs-fs/hubfs/CCNA%20Images/Exploring%20Layer%203%20Redundancy%201_V3.jpg?width=1921&height=961&name=Exploring%20Layer%203%20Redundancy%201_V3.jpg)
+
 ---
 
 ## Identifying the Default Gateway
@@ -30,7 +33,7 @@ The default gateway's IP address is usually configured automatically (e.g., via 
 * **On Windows**:
   Run the following command in Command Prompt:
 
-  ```
+  ```bash
   ipconfig
   ```
 
@@ -39,14 +42,14 @@ The default gateway's IP address is usually configured automatically (e.g., via 
 * **On Linux**:
   Use the following command:
 
-  ```
+  ```bash
   ip route | grep default
   ```
 
 * **On both Windows and Linux**:
   You can also use:
 
-  ```
+  ```bash
   netstat -r
   ```
 
@@ -63,32 +66,35 @@ However, if the destination is in a **different subnet**, the device recognizes 
 1. Forwards the packet to the default gateway.
 2. The router (default gateway) receives the packet, examines its destination IP, and forwards it to the appropriate network.
 
+![Network Arch image](https://i.sstatic.net/tXBIZ.png)
 ---
 
 ## Example: Two Devices in Different Networks
 
 Consider:
 
-* **Computer A** with IP: `192.168.1.10/24`
-* **Computer B** with IP: `192.168.2.10/24`
+* **Computer A** with IP: `192.168.0.0/24`
+* **Computer B** with IP: `192.168.1.0/24`
+
+![Network diagram](https://i.sstatic.net/tXBIZ.png)
 
 These IPs are in different networks:
 
-* `192.168.1.0/24` and `192.168.2.0/24`
+* `192.168.0.0/24` and `192.168.1.0/24`
 
 Since they are on separate networks, **direct communication isn't possible**. Each computer must send traffic to a router configured as their **default gateway**, which has:
 
-* One interface on `192.168.1.0/24` (e.g., `192.168.1.1`)
-* Another on `192.168.2.0/24` (e.g., `192.168.2.1`)
+* One interface on `192.168.0.0/24` (e.g., `192.168.0.1`)
+* Another on `192.168.1.0/24` (e.g., `192.168.1.1`)
 
 When Computer A wants to send data to Computer B:
 
-* It sends the packet to `192.168.1.1` (its default gateway).
-* The router forwards it through its `192.168.2.1` interface to reach Computer B.
+* It sends the packet to `192.168.0.1` (its default gateway).
+* The router forwards it through its `192.168.1.1` interface to reach Computer B.
 
 ---
 
-## Final Notes
+## Notes
 
 * **Default gateways are only used when communication is across different IP networks.**
 * **Local communication (same subnet)** is handled using MAC addresses and does not require a gateway.

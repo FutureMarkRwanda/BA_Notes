@@ -25,7 +25,7 @@ For example, a DHCP server can assign IPs to devices in a school’s network, en
 | 192.168.1.0/24  | Staff devices               | 192.168.1.10–192.168.1.254 |
 | 192.168.8.0/24  | Student devices             | 192.168.8.5–192.168.8.254  |
 
-Scenario: A school uses DHCP to assign IPs to student laptops, reserving specific addresses for servers to avoid conflicts.
+A school uses DHCP to assign IPs to student laptops, reserving specific addresses for servers to avoid conflicts.
 
 ---
 
@@ -41,7 +41,7 @@ For two subnets (Student-block and Teacher-block), the configuration assigns IPs
 | Teacher-block   | 192.168.1.0–192.168.1.255 | 192.168.1.10–192.168.1.254 | 255.255.255.0 | 192.168.1.1     |
 
 Configuration commands:
-```
+```bash
 Router> enable
 Router# configure terminal
 ! Configure Student-block interface
@@ -73,4 +73,4 @@ Router# show ip dhcp pool Student-block
 Router# show ip dhcp pool Teacher-block
 ```
 
-Scenario: A school configures DHCP on a Cisco router for two subnets. The Student-block serves student devices, and the Teacher-block serves staff, with reserved IPs for servers and gateways excluded to prevent conflicts.
+A school configures DHCP on a Cisco router for two subnets. The Student-block serves student devices, and the Teacher-block serves staff, with reserved IPs for servers and gateways excluded to prevent conflicts.
