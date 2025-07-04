@@ -57,11 +57,11 @@ Creating test cases based on requirements, using design techniques like boundary
 ```
 
 ### 3.3 Test Types
-| Type             | Description                              |
-|------------------|------------------------------------------|
-| Functional       | Tests features (e.g., login works)       |
-| Non-Functional   | Tests performance, security, usability   |
-
+| Type           | Description                                                                                                                                                                  |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Functional     | Tests features (e.g., login works)<br/> Unit Testing<br/>Integration Testing<br/>Smoke<br/>Localization<br/>Globalization<br/>User Acceptance Testing<br/>Interoperability   |
+| Non-Functional | Tests performance, security, usability ,Scalability, Volume, Load, Endurance                                                                                                 |
+| Maintenance    | Regression<br/>Maintenance
 ---
 
 ## 4. **Executing Test Cases**
