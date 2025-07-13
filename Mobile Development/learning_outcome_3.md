@@ -1,128 +1,282 @@
-# **Learning Outcome 3: Develop Front End with React Native**
+# Learning Outcome 3: Develop Front End with React Native
 
-### 📘 Learning Hours: 30
-
----
-
-## 📌 Objective
-
-By the end of this section, learners will be able to:
-- Apply React Native fundamentals (components, JSX).
-- Implement UI navigation with React Navigation.
-- Use React Native hooks and form handling (Formik, React Hook Form).
-- Manage state with Redux or MobX.
-- Perform unit tests with Jest and React Testing Library.
+This section outlines the foundational skills and tools required to develop the front end of a cross-platform mobile application using React Native. It covers JSX syntax, component architecture, navigation patterns, React hooks, forms, state management, and testing. These are applied in the context of the **RealEstatePro** project and aligned with the objectives of the SPECM502 module.
 
 ---
 
-## 1. **React Native Fundamentals**
+## 1. React Native Fundamentals
 
-### 1.1 Definition
-React Native uses components and JSX to build cross-platform UI [cite: 147].
+### JSX Syntax
 
-### 1.2 Example: Property Component
+**Purpose:** JSX (JavaScript XML) is a syntax extension used in React Native for writing UI components declaratively.
+
+**Key Concepts:**
+
+* Combines HTML-like syntax with JavaScript logic.
+* Supports embedding dynamic expressions, conditionals, and loops.
+* Each component must return a single root element (e.g., wrapped in `<View>`).
+
+**Example (RealEstatePro):**
+
 ```jsx
-import React from 'react';
-import { View, Text } from 'react-native';
-
-const Property = ({ name, price }) => (
-  <View>
-    <Text>{name} - ${price}</Text>
-  </View>
-);
-export default Property;
+<View>
+  <Text>{property.name}</Text>
+  <Image source={{ uri: property.image }} />
+</View>
 ```
 
 ---
 
-## 2. **UI Navigation**
+### Components
 
-### 2.1 Definition
-Navigation enables seamless movement between app screens [cite: 150].
+**Purpose:** Components are the building blocks of React Native apps and promote reusability and modularity.
 
-### 2.2 Example: React Navigation Setup
+**Types:**
+
+* **Functional Components** (preferred): Use hooks (`useState`, `useEffect`) for state and lifecycle handling.
+* **Class Components** (legacy): Use lifecycle methods like `componentDidMount`.
+
+**Core Components:**
+
+* `<View>`, `<Text>`, `<Image>`, `<TouchableOpacity>`, `<ScrollView>`
+
+**Example:**
+Create a reusable `PropertyCard` component for displaying a property's image, name, and price.
+
+---
+
+### Props and State
+
+**Props:**
+
+* Immutable data passed from parent to child.
+* Enable component customization.
+
 ```jsx
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
+<PropertyCard name="Villa" price={500000} />
+```
 
-const App = () => (
-  <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Property" component={PropertyScreen} />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
+**State:**
+
+* Local, mutable data using `useState` or `this.setState`.
+* Changes to state trigger UI re-renders.
+
+**Example (RealEstatePro):**
+
+```jsx
+const [name, setName] = useState('');
 ```
 
 ---
 
-## 3. **React Native Hooks and Forms**
+## 2. UI Navigation
 
-### 3.1 Definition
-Hooks manage state and lifecycle; Formik/React Hook Form handle form inputs [cite: 152].
+### Navigation Patterns (React Navigation Library)
 
-### 3.2 Example: Form with React Hook Form
+* **Stack Navigation (`createStackNavigator`)**
+
+  * Linear flows (e.g., Login → Dashboard → Details).
+  * Supports screen transitions and header customization.
+
+* **Tab Navigation (`createBottomTabNavigator`)**
+
+  * Provides access to primary screens via bottom or top tabs.
+  * Customizable with icons and labels.
+
+* **Drawer Navigation (`createDrawerNavigator`)**
+
+  * Sidebar menu for secondary options (e.g., Settings, Logout).
+
+**RealEstatePro Use Cases:**
+
+* Stack: Login → Property List → Details
+* Tabs: Client dashboard navigation (Home, Search, Wishlist)
+* Drawer: Admin settings (Manage Agents, Reports)
+
+---
+
+## 3. Hooks
+
+### Built-in Hooks
+
+* **`useState`**: Manage component-local state.
+* **`useEffect`**: Handle side effects like API calls.
+* **`useContext`**: Access global context (e.g., authentication state).
+* **`useRef`**: Access DOM elements or persist values across renders.
+* **`useCallback`**: Memoize functions to prevent unnecessary re-renders.
+* **`useMemo`**: Memoize computed values for performance.
+
+**Examples:**
+
 ```jsx
-import { useForm } from 'react-hook-form';
-const PropertyForm = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-  return (
-    <View>
-      <TextInput {...register('name')} placeholder="Property Name" />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-    </View>
-  );
+const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+  fetchProperties();
+}, []);
+
+const filtered = useMemo(() => properties.filter(p => p.price > 100000), [properties]);
+```
+
+
+### Custom Hooks and Testing
+
+**Custom Hooks:**
+
+* Encapsulate reusable logic (e.g., `usePropertyForm`, `useFetchProperties`).
+
+**Testing Hooks:**
+
+* Use `@testing-library/react-hooks` to isolate and test hook logic.
+
+**RealEstatePro Example:**
+
+* Custom hook `usePropertyForm` to manage form state and validation logic for property submission.
+
+---
+
+## 4. Forms
+
+### Form Design and Validation
+
+* Use `<TextInput>` for form fields and `<TouchableOpacity>` for submission.
+* Ensure mobile accessibility and keyboard interaction.
+
+**Libraries:**
+
+* **Formik**: Full-featured form management and validation.
+* **React Hook Form**: Lightweight alternative optimized for performance.
+
+**Example (Formik):**
+
+```jsx
+<Formik
+  initialValues={{ name: '' }}
+  validate={values => (!values.name ? { name: 'Required' } : {})}
+  onSubmit={handleSubmit}
+/>
+```
+
+**RealEstatePro Example:**
+
+* Design a form for agents to submit new properties with fields such as name, address, price, room count, and images.
+
+---
+
+### Event Handling and Submission
+
+**Event Handling:**
+
+* Handle changes via `onChangeText`, focus, blur, and button `onPress`.
+
+**Submission:**
+
+* Validate inputs.
+* Use async functions to send data to backend APIs.
+* Display loading states and handle errors gracefully.
+
+**Example:**
+
+```jsx
+const onSubmit = async (data) => {
+  try {
+    setLoading(true);
+    await axios.post('/api/properties', data);
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
 };
 ```
 
 ---
 
-## 4. **State Management**
+## 5. State Management
 
-### 4.1 Definition
-Redux or MobX manages app-wide state for consistency [cite: 156].
+### Local vs Global State
 
-### 4.2 Example: Redux Store
-```jsx
-import { configureStore } from '@reduxjs/toolkit';
-const store = configureStore({
-  reducer: { properties: propertiesReducer },
-});
-```
+* **Local State:** For UI-specific data (e.g., modals, form inputs).
 
----
+  * `useState`, `useReducer`
 
-## 5. **Performing Tests**
+* **Global State:** For shared application state.
 
-### 5.1 Definition
-Unit tests verify component functionality using Jest [cite: 160].
+  * **Redux:** Centralized store with reducers and actions.
+  * **Context API:** Lightweight alternative for simple apps.
+  * **MobX:** Observable state and auto-tracked reactions.
 
-### 5.2 Example: Jest Test
-```jsx
-import { render } from '@testing-library/react-native';
-test('renders property', () => {
-  const { getByText } = render(<Property name="Villa" price="500000" />);
-  expect(getByText('Villa - $500000')).toBeTruthy();
-});
-```
+**RealEstatePro Example:**
+
+* Use Redux to store authenticated user info and property listings.
+* Use local state for form input within components.
 
 ---
 
-## ✅ Summary Table
-| Concept               | Description                              | Example                        |
-|-----------------------|------------------------------------------|--------------------------------|
-| React Native          | Building UI with components              | Property component             |
-| Navigation            | Screen transitions                       | React Navigation stack         |
-| Hooks/Forms           | Managing state and inputs                | React Hook Form for property   |
-| State Management      | App-wide data consistency                | Redux store setup              |
-| Testing               | Verifying functionality                   | Jest unit test                 |
+### Normalization and Denormalization
+
+* **Normalization:**
+
+  * Store flat, scalable data structures.
+  * Example:
+
+    ```js
+    {
+      properties: {
+        byId: {
+          1: { id: 1, name: "Villa", ownerId: 2 },
+          2: { id: 2, name: "Apartment", ownerId: 3 }
+        }
+      }
+    }
+    ```
+
+* **Denormalization:**
+
+  * Combine related data for UI rendering.
+  * Easier to access for presentation but less efficient for updates.
+
+**RealEstatePro Example:**
+
+* Normalize data in Redux and denormalize in components for display (e.g., show owner info within property cards).
 
 ---
 
-## 📚 Practice Exercises
-1. Create a React Native component for displaying property details [cite: 148].
-2. Implement navigation between home and property details screens [cite: 150].
-3. Write a Jest test for a form submission component [cite: 160].
+## 6. Testing
+
+### Types of Testing
+
+| Type                    | Purpose                                          | Tools                 |
+| ----------------------- | ------------------------------------------------ | --------------------- |
+| **Unit Testing**        | Test functions/components in isolation           | Jest                  |
+| **Component Testing**   | Test visual components and interactions          | React Testing Library |
+| **Integration Testing** | Test interactions between components or features | React Testing Library |
+| **End-to-End Testing**  | Test full app workflows on devices/emulators     | Detox                 |
+| **Async Testing**       | Test data fetching and asynchronous logic        | Jest, waitFor, act    |
+
+---
+
+### Tools
+
+* **Jest**: Unit and integration tests, mocking and assertions.
+* **React Testing Library**: UI testing via simulated user interactions.
+* **Detox**: E2E testing for mobile workflows.
+
+**RealEstatePro Examples:**
+
+* Unit test a price formatter utility function.
+* Component test `PropertyCard` rendering.
+* Use Detox to test adding a property to a client’s wishlist from login through to submission.
+
+---
+
+## Summary of Key Concepts
+
+| Area             | Key Focus                                                                 |
+| ---------------- | ------------------------------------------------------------------------- |
+| JSX & Components | Enables modular, reusable UI structure using declarative syntax           |
+| Navigation       | React Navigation supports complex flows across user roles                 |
+| Hooks            | Simplify state, effects, and context handling across components           |
+| Forms            | Managed efficiently with Formik or React Hook Form, with validation logic |
+| State Management | Combination of local/global state with normalization ensures scalability  |
+| Testing          | Verifies correctness and reliability through layered test strategies      |

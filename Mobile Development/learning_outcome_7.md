@@ -1,26 +1,30 @@
-# **Learning Outcome 7: Develop a Testing Strategy**
+# Learning Outcome 7: Develop a Testing Strategy
 
-### 📘 Learning Hours: 10
 
----
+## 🎯 Objective
 
-## 📌 Objective
+By the end of this outcome, learners will be able to:
 
-By the end of this section, learners will be able to:
-- Design a testing strategy for a cross-platform mobile application.
-- Implement unit tests for individual components using Jest and React Testing Library.
-- Conduct widget tests for UI elements in React Native.
-- Perform integration tests to verify interactions between app components and APIs.
-- Apply testing best practices to ensure the RealEstatePro app meets quality standards [cite: 160, 161, 162].
+* Design a structured testing strategy for cross-platform mobile apps.
+* Write unit tests for individual components using **Jest** and **React Testing Library**.
+* Perform widget/UI tests to validate behavior across platforms.
+* Conduct integration (end-to-end) tests using **Detox**.
+* Apply testing best practices to maintain app reliability and user satisfaction.
 
 ---
 
-## 1. **Unit Testing**
+## 1. Unit Testing
 
 ### 1.1 Definition
-Unit testing verifies the functionality of individual components (e.g., React Native components) in isolation [cite: 160].
 
-### 1.2 Example: Unit Test for Property Component
+Unit testing focuses on verifying the behavior of individual, isolated units (e.g., components, functions) of the app.
+
+> 🔹 *Tool:* Jest
+> 🔹 *Scope:* Business logic, UI rendering, and prop handling within a single component
+> 🔹 *RealEstatePro Context:* Test components like `PropertyCard`, `LoginForm`, `PropertyForm`
+
+### 1.2 Example: Testing the Property Component
+
 ```jsx
 import { render, screen } from '@testing-library/react-native';
 import Property from './Property';
@@ -33,12 +37,17 @@ test('renders property details correctly', () => {
 
 ---
 
-## 2. **Widget Testing**
+## 2. Widget Testing
 
 ### 2.1 Definition
-Widget testing ensures UI elements (e.g., buttons, text inputs) in React Native render and behave correctly across platforms [cite: 161].
 
-### 2.2 Example: Widget Test for Property Form
+Widget testing (UI testing) ensures that UI components such as buttons, inputs, and toggles behave as expected on real devices and emulators.
+
+> 🔹 *Tool:* React Testing Library
+> 🔹 *Focus:* Visual elements and interaction behavior (e.g., button clicks, input events)
+
+### 2.2 Example: Testing Property Form Submission
+
 ```jsx
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import PropertyForm from './PropertyForm';
@@ -54,17 +63,24 @@ test('submits property form', () => {
 
 ---
 
-## 3. **Integration Testing**
+## 3. Integration Testing
 
 ### 3.1 Definition
-Integration testing verifies interactions between components, APIs, and external services in the app [cite: 162].
 
-### 3.2 Example: Integration Test with Detox
-```javascript
+Integration testing validates complete user flows and the interaction between components, APIs, and navigation.
+
+> 🔹 *Tool:* Detox
+> 🔹 *Focus:* End-to-end (E2E) behavior across the app lifecycle
+> 🔹 *RealEstatePro Example:* Test that a client can log in, browse properties, and add one to their wishlist.
+
+### 3.2 Example: Detox E2E Property Flow
+
+```js
 describe('Property Flow', () => {
   beforeAll(async () => {
     await device.launchApp();
   });
+
   it('should add and display a property', async () => {
     await element(by.id('addPropertyButton')).tap();
     await element(by.id('nameInput')).typeText('Villa');
@@ -76,47 +92,77 @@ describe('Property Flow', () => {
 
 ---
 
-## 4. **Testing Strategy for RealEstatePro**
+## 4. Testing Strategy for RealEstatePro
 
 ### 4.1 Definition
-A testing strategy combines unit, widget, and integration tests to ensure app functionality, UI reliability, and system integration for cross-platform apps [cite: 160].
 
-### 4.2 Example: Testing Strategy Outline
+A **testing strategy** defines a structured plan combining unit, widget, and integration tests to validate the reliability, performance, and functionality of an app across platforms.
+
+> 🔹 *Goal:* Achieve ≥80% code coverage and validate key user flows
+> 🔹 *Scope:* Functional correctness, UI consistency, cross-role interaction integrity
+
+### 4.2 RealEstatePro Testing Strategy Outline
+
 ```markdown
 # RealEstatePro Testing Strategy
-- **Unit Tests**:
-  - Test components (e.g., Property, PropertyForm) with Jest.
-  - Coverage: 80% of codebase.
-- **Widget Tests**:
-  - Test UI interactions (e.g., button clicks, form inputs) with React Testing Library.
-  - Platforms: iOS and Android emulators.
-- **Integration Tests**:
-  - Test end-to-end flows (e.g., add property, fetch properties) with Detox.
-  - Validate API integration with mock responses.
-- **Tools**: Jest, React Testing Library, Detox, React Native Debugger.
+
+## Unit Tests
+- Target: UI components like PropertyCard, LoginForm
+- Tool: Jest
+- Target coverage: 80%
+
+## Widget Tests
+- Test: Button presses, form inputs, navigations
+- Tool: React Testing Library
+- Run on: Android Emulator, iOS Simulator
+
+## Integration Tests
+- Flow: User login → Browse → Wishlist → Submit Order
+- Tool: Detox
+- Backend: Mock API responses
+
+## Tools:
+- Jest, React Testing Library, Detox, React Native Debugger
 ```
 
-### 4.3 Testing Tools
-| Tool                  | Purpose                              |
-|-----------------------|--------------------------------------|
-| Jest                  | Unit and widget testing              |
-| React Testing Library | Testing UI component behavior        |
-| Detox                 | End-to-end integration testing       |
-| React Native Debugger | Debugging test failures              |
+### 4.3 Testing Tools Summary
+
+| Tool                      | Purpose                                      |
+| ------------------------- | -------------------------------------------- |
+| **Jest**                  | Unit testing of components and functions     |
+| **React Testing Library** | Widget/UI testing of user interactions       |
+| **Detox**                 | E2E testing for complete user journeys       |
+| **React Native Debugger** | Debugging test failures and state inspection |
 
 ---
 
-## ✅ Summary Table
-| Concept               | Description                              | Example                        |
-|-----------------------|------------------------------------------|--------------------------------|
-| Unit Testing          | Testing individual components            | Jest test for Property component|
-| Widget Testing        | Testing UI elements                      | Form submission test           |
-| Integration Testing   | Testing component interactions           | Detox E2E property flow test   |
-| Testing Strategy      | Comprehensive testing plan               | RealEstatePro testing outline  |
+## Summary Table
+
+| Concept              | Description                          | Example                                     |
+| -------------------- | ------------------------------------ | ------------------------------------------- |
+| **Unit Testing**     | Test single component functionality  | Test `PropertyCard` renders props correctly |
+| **Widget Testing**   | Test UI element interactions         | Test `PropertyForm` submits data            |
+| **Integration Test** | Test component and API interactions  | Detox test for property creation flow       |
+| **Testing Strategy** | Combine all levels for full coverage | RealEstatePro testing plan using 3 tools    |
 
 ---
 
-## 📚 Practice Exercises
-1. Write a unit test for a login component using Jest and React Testing Library [cite: 160].
-2. Create a widget test for a property search button to ensure it triggers the correct navigation [cite: 161].
-3. Develop an integration test with Detox to verify the client’s ability to submit a wish list in RealEstatePro [cite: 162].
+## Practice Exercises
+
+1. **Unit Test:**
+   Create a Jest unit test for a `LoginForm` component that validates rendering of input fields and submit button.
+
+2. **Widget Test:**
+   Write a React Testing Library test that ensures pressing a “Search” button navigates to the `SearchScreen`.
+
+3. **Integration Test:**
+   Using Detox, automate the process of a client logging in, browsing properties, adding one to the wishlist, and verifying the updated list.
+
+---
+
+## Key Takeaways
+
+* A robust testing strategy improves app reliability, user experience, and maintainability.
+* Use **unit tests** for logic validation, **widget tests** for UI interactions, and **integration tests** to verify complete workflows.
+* Testing tools like Jest, React Testing Library, and Detox are critical in a cross-platform React Native environment.
+* The RealEstatePro app requires a complete test coverage plan due to its role-based access and multi-step workflows.
